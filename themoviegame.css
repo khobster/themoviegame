@@ -1,116 +1,97 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2299.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-    span.Apple-tab-span {white-space:pre}
-  </style>
-</head>
-<body>
-<p class="p1">/* Example modifications, keep most of the existing styles */</p>
-<p class="p2"><br></p>
-<p class="p1">#dailyQuestion {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-family: 'Roboto', sans-serif; /* Set Roboto as the font */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-tab-span">	</span>font-size: 30px;</p>
-<p class="p1"><span class="Apple-tab-span">	</span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 0px;</p>
-<p class="p1"><span class="Apple-tab-span">	</span>margin-bottom: 10px;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">#userAnswer {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-size: 20px;</p>
-<p class="p1"><span class="Apple-tab-span">	</span>font-family: 'Roboto', sans-serif;</p>
-<p class="p1"><span class="Apple-tab-span">	</span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-tab-span">	</span>margin-bottom: 5px;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Styles for the submit button */</p>
-<p class="p1">#submitAnswerBtn {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background-color: green; /* Green background */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>color: white; /* White text */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-family: 'Roboto', sans-serif; /* Roboto font */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold; /* Bold font */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px 10px; /* Increased padding for a larger button */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 5px; /* Space above the button */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>border: 2px solid transparent; /* Adjusted border */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-size: 15px; /* Keeping font size the same */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer; /* Pointer cursor on hover */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 4px; /* Rounded corners */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>transition: background-color 0.3s; /* Smooth transition for hover effect */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>width: auto; /* Auto width based on content and padding */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>height: auto; /* Auto height based on content and padding */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>min-width: 100px; /* Minimum width */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>min-height: 50px; /* Minimum height */</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">#submitAnswerBtn:hover {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background-color: darkgreen; /* Slightly darker green on hover */</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">#app {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>display: flex; /* Enable flexbox */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>flex-direction: column; /* Stack children vertically */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>align-items: center; /* Center-align children horizontally */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>justify-content: center; /* Center-align children vertically */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>text-align: center; /* Center-align text for all children */</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Animation for incorrect answer */</p>
-<p class="p1">@keyframes shake {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>0%, 100% { transform: translateX(0); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>25% { transform: translateX(-10px); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>50% { transform: translateX(10px); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>75% { transform: translateX(-10px); }</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">.incorrect {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background-color: red;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>animation: shake 0.5s;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">.game-image {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>max-width: 1000px; /* Adjust the max-width as needed */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin: 0 auto 1px auto; /* Adds margin to the bottom and auto-aligns horizontally */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>float: none; /* Aligns the image to the right */</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">.title-container, #userAnswer, #submitAnswerBtn {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>padding: 0;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Keyframes for flashing effect */</p>
-<p class="p1">@keyframes flash {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>0%, 100% { background-color: green; color: white; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>50% { background-color: white; color: green; }</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Correct answer style with flashing animation */</p>
-<p class="p1">.correct {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>animation: flash 1s linear infinite;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-family: 'Roboto', sans-serif; /* Roboto font */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-weight: bold; /* Bold font */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-size: 60px; /* Increased font size */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>color: white; /* Text color */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background-color: green; /* Background color */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>display: block; /* Make the element a block for better control */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>text-align: center; /* Center text horizontally */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin: 0 auto; /* Center block element horizontally */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>width: 100%; /* Full width */</p>
-<p class="p1">}</p>
-</body>
-</html>
+#dailyQuestion {
+    font-family: 'Roboto', sans-serif; /* Set Roboto as the font */
+    font-weight: bold; 
+	font-size: 30px;
+	font-weight: bold;
+    margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+#userAnswer {
+    font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+/* Styles for the submit button */
+#submitAnswerBtn {
+    background-color: green; /* Green background */
+    color: white; /* White text */
+    font-family: 'Roboto', sans-serif; /* Roboto font */
+    font-weight: bold; /* Bold font */
+    padding: 10px 10px; /* Increased padding for a larger button */
+    margin-top: 5px; /* Space above the button */
+    border: 2px solid transparent; /* Adjusted border */
+    font-size: 15px; /* Keeping font size the same */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    width: auto; /* Auto width based on content and padding */
+    height: auto; /* Auto height based on content and padding */
+    min-width: 100px; /* Minimum width */
+    min-height: 50px; /* Minimum height */
+}
+
+#submitAnswerBtn:hover {
+    background-color: darkgreen; /* Slightly darker green on hover */
+}
+
+#app {
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align children horizontally */
+    justify-content: center; /* Center-align children vertically */
+    text-align: center; /* Center-align text for all children */
+}
+
+/* Animation for incorrect answer */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+}
+
+.incorrect {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    animation: shake 0.5s;
+}
+
+.game-image {
+    width: 100%;
+    max-width: 1000px; /* Adjust the max-width as needed */
+    display: block;
+    margin: 0 auto 1px auto; /* Adds margin to the bottom and auto-aligns horizontally */
+    float: none; /* Aligns the image to the right */
+}
+
+.title-container, #userAnswer, #submitAnswerBtn {
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+/* Keyframes for flashing effect */
+@keyframes flash {
+    0%, 100% { background-color: green; color: white; }
+    50% { background-color: white; color: green; }
+}
+
+/* Correct answer style with flashing animation */
+.correct {
+    padding: 10px;
+    border-radius: 4px;
+    animation: flash 1s linear infinite;
+    font-family: 'Roboto', sans-serif; /* Roboto font */
+    font-weight: bold; /* Bold font */
+    font-size: 60px; /* Increased font size */
+    color: white; /* Text color */
+    background-color: green; /* Background color */
+    display: block; /* Make the element a block for better control */
+    text-align: center; /* Center text horizontally */
+    margin: 0 auto; /* Center block element horizontally */
+    width: 100%; /* Full width */
+}
