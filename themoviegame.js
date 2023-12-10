@@ -22,8 +22,10 @@ function getThirtyMinuteIntervalSeed() {
     const now = new Date();
     const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const millisecondsPerThirtyMinutes = 30 * 60 * 1000;
-    return Math.floor((now - startOfDay) / millisecondsPerThirtyMinutes);
+    const intervalCount = Math.floor((now - startOfDay) / millisecondsPerThirtyMinutes);
+    return intervalCount + now.getDate();
 }
+
 function loadDailyQuestion() {
     fetch('https://raw.githubusercontent.com/khobster/myprojects/main/badwillafishing.json')
         .then(response => response.json())
@@ -45,11 +47,6 @@ function loadDailyQuestion() {
             document.getElementById('dailyQuestion').textContent = 'Error loading question.';
         });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    loadDailyQuestion();
-});
-
 
 document.addEventListener('DOMContentLoaded', () => {
     loadDailyQuestion();
