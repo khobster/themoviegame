@@ -99,3 +99,25 @@ font-family: 'Roboto', sans-serif; /* Roboto font */
     margin: 0 auto; /* Center block element horizontally */
     width: 100%; /* Full width */
 }
+
+.phone-button {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px; /* Vertically center the emoji */
+    text-decoration: none;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+    position: fixed; /* Keep the button at a fixed position */
+    bottom: 20px; /* 20px from the bottom */
+    right: 20px; /* 20px from the right */
+}
+
+.phone-button:hover {
+    background-color: darkred;
+    transform: scale(1.1); /* Slightly enlarges the button on hover */
+}
