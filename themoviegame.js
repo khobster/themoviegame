@@ -18,11 +18,11 @@ function updateResult(isCorrect, resultElement) {
     }
 }
 
-function getThirtyMinuteIntervalSeed() {
+function getTenMinuteIntervalSeed() {
     const now = new Date();
     const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const millisecondsPerThirtyMinutes = 30 * 60 * 1000;
-    const intervalCount = Math.floor((now - startOfDay) / millisecondsPerThirtyMinutes);
+    const millisecondsPerTenMinutes = 10 * 60 * 1000;
+    const intervalCount = Math.floor((now - startOfDay) / millisecondsPerTenMinutes);
     return intervalCount + now.getDate();
 }
 
@@ -31,7 +31,7 @@ function loadDailyQuestion() {
         .then(response => response.json())
         .then(data => {
             if (Array.isArray(data)) {
-                const seed = getThirtyMinuteIntervalSeed();
+                const seed = getTenMinuteIntervalSeed();
                 Math.seedrandom(seed);
                 const questionIndex = Math.floor(Math.random() * data.length);
                 
