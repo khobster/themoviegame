@@ -121,6 +121,31 @@
     transform: scale(1.1); /* Slightly enlarges the button on hover */
 }
 
+.sippy-cup-button {
+    display: inline-block;
+    background-color: white;
+    width: 40px; /* Adjust size as needed */
+    height: 40px; /* Adjust size as needed */
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px; /* Center the image vertically */
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    position: fixed;
+    bottom: 20px;
+    right: 70px; /* Adjust distance from the right */
+}
+
+.sippy-cup-button img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.sippy-cup-button:hover {
+    background-color: #f0f0f0; /* Lighter background on hover */
+    transform: scale(1.1); /* Slightly enlarges the button on hover */
+}
+
 /* Countdown Timer Styles */
 .countdown-timer {
     position: fixed;
