@@ -58,7 +58,7 @@ function startCountdown() {
         const timeDifference = resetTime - currentTime;
         if (timeDifference <= 0) {
             clearInterval(interval);
-            countdownElement.textContent = 'Updating question...';
+            countdownElement.textContent = 'Clock resetting...';
             loadDailyQuestion(); // Reload the question
             setTimeout(startCountdown, 2000); // Restart the countdown after a short delay
             return;
