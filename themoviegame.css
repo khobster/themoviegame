@@ -132,5 +132,9 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     font-family: 'Roboto', sans-serif; /* Consistent font style */
     font-size: 16px;
-    /* Additional styling as needed */
+}
+
+#countdownTimer #timer {
+    font-weight: bold; /* Make the font bold */
+    font-size: 18px; /* Slightly larger font size */
 }
