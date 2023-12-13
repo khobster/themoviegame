@@ -48,8 +48,31 @@ function loadDailyQuestion() {
         });
 }
 
+function startCountdown() {
+    const countdownElement = document.getElementById('timer');
+    const interval = setInterval(() => {
+        const currentTime = new Date();
+        const resetTime = new Date(currentTime);
+        resetTime.setMinutes(Math.ceil(currentTime.getMinutes() / 10) * 10, 0, 0);
+
+        const timeDifference = resetTime - currentTime;
+        if (timeDifference <= 0) {
+            clearInterval(interval);
+            countdownElement.textContent = 'Updating question...';
+            loadDailyQuestion(); // Reload the question
+            setTimeout(startCountdown, 2000); // Restart the countdown after a short delay
+            return;
+        }
+
+        const minutes = Math.floor(timeDifference / 60000);
+        const seconds = Math.floor((timeDifference % 60000) / 1000);
+        countdownElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }, 1000);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadDailyQuestion();
+    startCountdown();
     document.getElementById('submitAnswerBtn').addEventListener('click', function() {
         const userGuess = document.getElementById('userAnswer').value;
         let isCorrect = isCorrectAnswer(userGuess, dailyData.answer);
