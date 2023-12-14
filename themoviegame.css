@@ -164,8 +164,8 @@
     position: fixed;
     bottom: 60px; /* Adjust the vertical position */
     right: 80px; /* Adjust the horizontal position */
-    transform: rotate(-45deg); /* Rotate the arrow */
-    background-color: transparent;
+    transform: rotate(-90deg); /* Rotate the arrow */
+    background-color: black;
     color: white;
     font-weight: bold;
     font-size: 18px;
