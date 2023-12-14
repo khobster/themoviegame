@@ -162,8 +162,8 @@
 
 .arrow-blink {
     position: fixed;
-    bottom: 80px; /* Adjust the vertical position to place it above the icon */
-    right: 80px; /* Align horizontally with the sippy cup icon */
+    bottom: 76px; /* Adjust the vertical position to place it above the icon */
+    right: 76px; /* Align horizontally with the sippy cup icon */
     background-color: black;
     color: white;
     font-weight: bold;
