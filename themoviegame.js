@@ -11,6 +11,13 @@ function updateResult(isCorrect, resultElement) {
         resultElement.textContent = 'YESSSS!';
         resultElement.className = 'correct'; // Triggers the pulse animation
         correctSound.play();
+
+        // Clear the message after 15 seconds
+        setTimeout(() => {
+            resultElement.textContent = '';
+            resultElement.className = ''; // Reset the class name
+        }, 15000);
+
     } else {
         resultElement.textContent = 'Nope. Give it another shot.';
         resultElement.className = 'incorrect'; // Triggers the shake animation
@@ -34,7 +41,7 @@ function loadDailyQuestion() {
                 const seed = getTenMinuteIntervalSeed();
                 Math.seedrandom(seed);
                 const questionIndex = Math.floor(Math.random() * data.length);
-                
+
                 dailyData = data[questionIndex];
                 document.getElementById('questionText').textContent = dailyData.question;
             } else {
@@ -59,8 +66,8 @@ function startCountdown() {
         if (timeDifference <= 0) {
             clearInterval(interval);
             countdownElement.textContent = 'Clock resetting...';
-            loadDailyQuestion(); // Reload the question
-            setTimeout(startCountdown, 2000); // Restart the countdown after a short delay
+            loadDailyQuestion();
+            setTimeout(startCountdown, 2000);
             return;
         }
 
