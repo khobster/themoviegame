@@ -5,22 +5,33 @@
     <title>The Movie Game</title>
     <link rel="stylesheet" type="text/css" href="themoviegame.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L6CFDJQRF5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-L6CFDJQRF5');
-</script>
-
+        <script async src=""https://www.googletagmanager.com/gtag/js?id=G-L6CFDJQRF5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'YOUR_TRACKING_ID');
+    </script>
+    <script src="seedrandom.js"></script>
     <meta property="og:image" content="https://vanillafrosting.agency/wp-content/uploads/2023/12/PLAY-THE-MOVIE-GAME-TITLE-OPEN-GRAPH.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="seedrandom.js"></script>
 </head>
 <body>
-    <!-- Your body content here -->
+    <div id="app">
+        <img src="https://vanillafrosting.agency/wp-content/uploads/2023/12/Screenshot-2023-12-07-at-4.01.45-AM.png" alt="Game Image" class="game-image">
+        <p id="dailyQuestion"><span id="questionText"></span></p>
+        <input id="userAnswer" type="text" placeholder="Enter your answer">
+        <button id="submitAnswerBtn">hit</button>
+        <div id="result"></div>
+    </div>
+    <a href="https://mailchi.mp/b9c533811d5e/sippy-cup" class="sippy-cup-button">
+        <img src="https://vanillafrosting.agency/wp-content/uploads/2023/07/sippy-cup-logo.png" alt="Sippy Cup Logo">
+    </a>
+    <div class="arrow-blink">take a sip & sign up ➡️</div>
+    <a href="mailto:kevin.murawinski@gmail.com?subject=Let's%20talk%20about%20developing%20intoxicating%20internet%20things%20for%20my%20brand%20or%20business&body=Let's%20do%20it!%20Please%20reply%20with%20next%20steps." class="phone-button">✉️</a>
+    <div id="countdownTimer" class="countdown-timer">
+        New clue in: <span id="timer"></span>
+    </div>
+    <script src="themoviegame.js"></script>
 </body>
 </html>
