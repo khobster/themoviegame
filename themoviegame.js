@@ -18,7 +18,7 @@ function toast(msg){const t=document.createElement('div');t.className='toast';t.
 function rand(max){return crypto.getRandomValues(new Uint32Array(1))[0]%max;}
 
 async function loadQ(){
-  const list=await (await fetch('badwillafishing_updated.json')).json();
+  const list=await (await fetch('badwillafishing_fixed.json')).json();
   const dayKey=`seen_${new Date().toJSON().slice(0,10)}`;
   let seen=JSON.parse(localStorage.getItem(key(dayKey))||'[]');
   if(seen.length>=list.length)seen=[];
