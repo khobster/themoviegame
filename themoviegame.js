@@ -7,8 +7,8 @@ const TMR   = document.getElementById('timer');
 const SCORE = document.getElementById('score');
 const SHARE = document.getElementById('shareBtn');
 
-const correctChime = new Audio('https://vanillafrosting.agency/wp-content/uploads/2023/11/bing-bong.mp3');
-const wrongBuzz    = new Audio('https://vanillafrosting.agency/wp-content/uploads/2023/11/incorrect-answer-for-plunko.mp3');
+const correctChime = new Audio('bing-bong.mp3');
+const wrongBuzz    = new Audio('incorrect-answer-for-plunko.mp3');
 
 let current    = {};   // {question, answer}
 let guessCount = 0;
