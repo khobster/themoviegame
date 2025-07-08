@@ -3,50 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <title>The Movie Game</title>
-
   <link rel="stylesheet" href="themoviegame.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L6CFDJQRF5"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date()); gtag('config', 'G-L6CFDJQRF5');
-  </script>
-
   <script src="seedrandom.js"></script>
-
-  <meta property="og:image" content="https://vanillafrosting.agency/wp-content/uploads/2023/12/PLAY-THE-MOVIE-GAME-TITLE-OPEN-GRAPH.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
 <body>
-  <div id="app">
-    <img src="Screenshot-2023-12-07-at-4.01.45-AM.png" alt="Game Image" class="game-image">
+  <!-- header bar -->
+  <header id="topBar">
+    <span id="logo">🎬 The Movie Game</span>
+    <span id="stats">Score <span id="score">0</span> | Streak <span id="streak">0</span></span>
+  </header>
 
+  <!-- game card -->
+  <main id="card">
     <p id="dailyQuestion"><span id="questionText"></span></p>
 
-    <input id="userAnswer" type="text" placeholder="Enter your answer" autocomplete="off">
-    <button id="submitAnswerBtn">hit</button>
-    <button id="hintBtn">hint&nbsp;(-1)</button>   <!-- NEW -->
+    <input id="userAnswer" placeholder="Type your guess & hit ↵" autocomplete="off">
+
+    <div class="btnRow">
+      <button id="submitAnswerBtn">hit</button>
+
+      <button id="hintBtn" class="iconBtn" title="Need a hint? -1 point">
+        💡 <span id="hintCount">3</span>
+      </button>
+
+      <button id="shareBtn" class="iconBtn" style="display:none;" title="Share result">
+        📤
+      </button>
+    </div>
 
     <div id="result" aria-live="polite"></div>
+  </main>
 
-    <div id="scoreboard">Score 🎉 <span id="score">0</span></div>
-    <button id="shareBtn" class="share-button" style="display:none;">Share&nbsp;⬆️</button>
+  <!-- toast area -->
+  <div id="toastContainer"></div>
 
-    <div id="countdownTimer" class="countdown-timer">
-      New clue in: <span id="timer"></span>
-    </div>
-  </div>
+  <!-- how-to modal (one-time) -->
+  <dialog id="howTo">
+    <h3>How to Play</h3>
+    <ol>
+      <li>Each clue is the <b>opposite</b> of a movie title.</li>
+      <li>Guess the film — you have unlimited tries.</li>
+      <li>Need help? Tap 💡 for up to 3 hints (-1 point each).</li>
+      <li>New clue every 10 min. Keep the streak alive!</li>
+    </ol>
+    <button id="closeHowTo">Got it!</button>
+  </dialog>
 
-  <!-- newsletter / contact icons (unchanged) -->
-  <a href="https://mailchi.mp/b9c533811d5e/sippy-cup" class="sippy-cup-button">
-    <img src="sippycuplogo.png" alt="Sippy Cup Logo">
-  </a>
-  <div class="arrow-blink">newsletter ⬇️</div>
-  <a href="mailto:kevin.murawinski@gmail.com?subject=Let's%20talk%20about%20developing%20intoxicating%20internet%20things%20for%20my%20brand%20or%20business&body=Let's%20do%20it!%20Please%20reply%20with%20next%20steps." class="phone-button">✉️</a>
+  <!-- timer -->
+  <div id="countdownTimer">New clue in <span id="timer"></span></div>
 
   <script src="themoviegame.js"></script>
 </body>
