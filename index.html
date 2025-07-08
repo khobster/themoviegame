@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>The Movie Game</title>
-  <link rel="stylesheet" href="themoviegame.css">
+
+  <link rel="stylesheet" href="themoviegame.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script src="seedrandom.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,23 +14,29 @@
   <!-- header bar -->
   <header id="topBar">
     <span id="logo">🎬 The Movie Game</span>
-    <span id="stats">Score <span id="score">0</span> | Streak <span id="streak">0</span></span>
+    <span id="stats">
+      Score <span id="score">0</span> | Streak <span id="streak">0</span>
+    </span>
   </header>
 
   <!-- game card -->
   <main id="card">
+    <img id="mascot" src="oscarlogobeanie.png" alt="Game mascot">
+
     <p id="dailyQuestion"><span id="questionText"></span></p>
 
-    <input id="userAnswer" placeholder="Type your guess & hit ↵" autocomplete="off">
+    <input id="userAnswer"
+           placeholder="Type your guess & hit ↵"
+           autocomplete="off" />
 
     <div class="btnRow">
       <button id="submitAnswerBtn">hit</button>
 
-      <button id="hintBtn" class="iconBtn" title="Need a hint? -1 point">
+      <button id="hintBtn" class="iconBtn" title="Need a hint? –1 point">
         💡 <span id="hintCount">3</span>
       </button>
 
-      <button id="shareBtn" class="iconBtn" style="display:none;" title="Share result">
+      <button id="shareBtn" class="iconBtn" title="Share result" style="display:none;">
         📤
       </button>
     </div>
@@ -40,19 +47,19 @@
   <!-- toast area -->
   <div id="toastContainer"></div>
 
-  <!-- how-to modal (one-time) -->
+  <!-- one-time how-to -->
   <dialog id="howTo">
     <h3>How to Play</h3>
     <ol>
       <li>Each clue is the <b>opposite</b> of a movie title.</li>
-      <li>Guess the film — you have unlimited tries.</li>
-      <li>Need help? Tap 💡 for up to 3 hints (-1 point each).</li>
-      <li>New clue every 10 min. Keep the streak alive!</li>
+      <li>Guess the film — unlimited tries.</li>
+      <li>Tap 💡 for up to 3 hints (-1 pt each).</li>
+      <li>New clue every <b>2 min</b>. Keep the streak alive!</li>
     </ol>
     <button id="closeHowTo">Got it!</button>
   </dialog>
 
-  <!-- timer -->
+  <!-- countdown -->
   <div id="countdownTimer">New clue in <span id="timer"></span></div>
 
   <script src="themoviegame.js"></script>
