@@ -1,4 +1,4 @@
-/* themoviegame.js – v3.0 (45-sec timer, game-over, new scoring) */
+/* themoviegame.js – v3.1 (45-sec timer, proper Game Over, +3/-1 scoring) */
 const $ = id => document.getElementById(id);
 const TXT=$('questionText'), IN=$('userAnswer'), BTN=$('submitAnswerBtn'),
       HINT=$('hintBtn'), SHARE=$('shareBtn'), RES=$('result'),
@@ -8,8 +8,9 @@ const TXT=$('questionText'), IN=$('userAnswer'), BTN=$('submitAnswerBtn'),
 const S_OK  = new Audio('https://vanillafrosting.agency/wp-content/uploads/2023/11/bing-bong.mp3');
 const S_BAD = new Audio('https://vanillafrosting.agency/wp-content/uploads/2023/11/incorrect-answer-for-plunko.mp3');
 
-let current={}, guessCt=0, hintLv=0;
-const INTERVAL_MS = 45_000;                     // 45-second slices
+let current={}, guessCt=0, hintLv=0, solved=false, endTime=0;
+
+const INTERVAL_MS = 45_000;
 const key = k => `tmv_${k}`;
 const get  = (k,d=0)=>+localStorage.getItem(key(k))||d;
 const setLS= (k,v)=>localStorage.setItem(key(k),v);
@@ -19,37 +20,49 @@ function toast(msg){
   const t=document.createElement('div'); t.className='toast'; t.textContent=msg;
   TOAST.appendChild(t); setTimeout(()=>t.remove(),2800);
 }
-function sliceNumber(){
-  return Math.floor(Date.now()/INTERVAL_MS);
-}
 function pickIndex(len){
-  Math.seedrandom(sliceNumber());
+  Math.seedrandom(Date.now().toString());
   return Math.floor(Math.random()*len);
 }
+async function fetchList(){
+  if(!fetchList.cache){
+    fetchList.cache = await (await fetch('badwillafishing_fixed.json')).json();
+  }
+  return fetchList.cache;
+}
 
-/* ---------- load clue ---------- */
+/* ---------- load new clue ---------- */
 async function loadQ(){
-  OVER.hidden = true; CARD.classList.remove('timesUp');
-  const list = await (await fetch('badwillafishing_fixed.json')).json();
+  CARD.classList.remove('arcade','timesUp');
+  OVER.style.display='none'; solved=false;
+
+  const list = await fetchList();
   current = list[pickIndex(list.length)];
 
-  TXT.textContent=current.question;
+  TXT.textContent = current.question;
   hintLv=0; $('hintCount').textContent=3; HINT.disabled=false;
   SHARE.style.display='none'; guessCt=0;
   IN.value=''; IN.focus({preventScroll:true});
+  endTime = Date.now() + INTERVAL_MS;
 }
 
 /* ---------- countdown ---------- */
 function countdown(){
-  const now = Date.now();
-  const msToNext = INTERVAL_MS - (now % INTERVAL_MS);
-  if(msToNext < 1000){
-    CARD.classList.add('timesUp');              // flash effect
-    setTimeout(loadQ,400);
+  const diff = endTime - Date.now();
+  if(diff <= 0){
+    if(!solved){                       // time-out ⇒ Game Over
+      S_BAD.play().catch(()=>{});
+      OVER.style.display='flex';
+      setLS('score',0); setLS('streak',0); updateHUD();
+      CARD.classList.add('timesUp');
+      setTimeout(loadQ,1800);
+    }else{
+      loadQ();                         // safety fallback
+    }
     return;
   }
-  const mm=Math.floor(msToNext/60000);
-  const ss=String(Math.floor(msToNext/1000)%60).padStart(2,'0');
+  const mm=Math.floor(diff/60000);
+  const ss=String(Math.floor(diff/1000)%60).padStart(2,'0');
   TIMER.textContent=`${mm}:${ss}`;
 }
 
@@ -59,26 +72,25 @@ function updateHUD(){
   STREAK.textContent=get('streak');
 }
 
-/* ---------- GAME OVER ---------- */
-function gameOver(){
-  S_BAD.play();
-  OVER.hidden=false;
-  setLS('score',0); setLS('streak',0);
-  updateHUD();
-  setTimeout(loadQ,1500);
+/* ---------- interactions ---------- */
+function correctAnswer(){
+  solved=true;
+  RES.textContent='Correct!';
+  S_OK.play().catch(()=>{});
+  CARD.classList.add('arcade');
+  setLS('score',get('score')+3);
+  setLS('streak',get('streak')+1);
+  updateHUD(); toast('+3 pts');
+  setTimeout(loadQ,800);
 }
 
-/* ---------- interactions ---------- */
 function guess(){
   const g=IN.value.trim(); if(!g) return;
+  guessCt++;
   if(g.toLowerCase()===current.answer.toLowerCase()){
-    RES.textContent='Correct!';
-    S_OK.play(); CARD.classList.add('arcade');
-    setLS('score',get('score')+3);              // +3 points
-    setLS('streak',get('streak')+1); updateHUD(); toast('+3 pts');
-    setTimeout(()=>{CARD.classList.remove('arcade'); loadQ();},800);
+    correctAnswer();
   }else{
-    gameOver();
+    RES.textContent='Nope';
   }
 }
 
@@ -86,7 +98,8 @@ function hint(){
   if(hintLv>=3) return;
   hintLv++; $('hintCount').textContent=3-hintLv;
   RES.textContent=current['hint'+hintLv]||'-';
-  setLS('score',Math.max(0,get('score')-1)); updateHUD(); toast('-1 pt');
+  setLS('score',Math.max(0,get('score')-1));
+  updateHUD(); toast('-1 pt');
   if(hintLv>=3) HINT.disabled=true;
 }
 
@@ -97,14 +110,23 @@ function share(){
   else{ navigator.clipboard.writeText(msg).then(()=>toast('Copied!')); }
 }
 
-/* ---------- boot ---------- */
+/* ---------- first run ---------- */
 document.addEventListener('DOMContentLoaded',()=>{
+  /* reset score/streak each new tab */
+  if(!sessionStorage.getItem('tmv_session_started')){
+      localStorage.setItem('tmv_score',0);
+      localStorage.setItem('tmv_streak',0);
+      sessionStorage.setItem('tmv_session_started','1');
+  }
+
   if(!localStorage.getItem(key('onboard'))){
     $('howTo').showModal();
     $('closeHowTo').onclick=()=>{
-      localStorage.setItem(key('onboard'),'1'); $('howTo').close();
+      localStorage.setItem(key('onboard'),'1');
+      $('howTo').close();
     };
   }
+
   updateHUD(); loadQ(); countdown(); setInterval(countdown,1000);
 
   BTN.onclick=guess;
