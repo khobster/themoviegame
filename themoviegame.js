@@ -1,19 +1,26 @@
-/* themoviegame.js – v3.1 (45-sec timer, proper Game Over, +3/-1 scoring) */
+/* themoviegame.js – v3.2  (sound-fx + true reset on Game Over) */
 const $ = id => document.getElementById(id);
 const TXT=$('questionText'), IN=$('userAnswer'), BTN=$('submitAnswerBtn'),
       HINT=$('hintBtn'), SHARE=$('shareBtn'), RES=$('result'),
       SCORE=$('score'), STREAK=$('streak'), TIMER=$('timer'),
       CARD=$('card'), TOAST=$('toastContainer'), OVER=$('gameOver');
 
-const S_OK  = new Audio('https://vanillafrosting.agency/wp-content/uploads/2023/11/bing-bong.mp3');
-const S_BAD = new Audio('https://vanillafrosting.agency/wp-content/uploads/2023/11/incorrect-answer-for-plunko.mp3');
+/* --- audio --- */
+const S_OK    = new Audio('https://vanillafrosting.agency/wp-content/uploads/2023/11/bing-bong.mp3');
+const S_BAD   = new Audio('https://vanillafrosting.agency/wp-content/uploads/2023/11/incorrect-answer-for-plunko.mp3');
+const S_GAMEO = new Audio('gameoversound.mp3');   // in your repo
+
+/* prime audio on first click / tap so browsers allow autoplay */
+['click','touchstart'].forEach(evt=>{
+  window.addEventListener(evt,()=>{ S_OK.play().catch(()=>{}); S_OK.pause(); },{once:true});
+});
 
 let current={}, guessCt=0, hintLv=0, solved=false, endTime=0;
 
 const INTERVAL_MS = 45_000;
 const key = k => `tmv_${k}`;
-const get  = (k,d=0)=>+localStorage.getItem(key(k))||d;
-const setLS= (k,v)=>localStorage.setItem(key(k),v);
+const get  =(k,d=0)=>+localStorage.getItem(key(k))||d;
+const setLS=(k,v)=>localStorage.setItem(key(k),v);
 
 /* ---------- helpers ---------- */
 function toast(msg){
@@ -39,7 +46,7 @@ async function loadQ(){
   const list = await fetchList();
   current = list[pickIndex(list.length)];
 
-  TXT.textContent = current.question;
+  TXT.textContent=current.question;
   hintLv=0; $('hintCount').textContent=3; HINT.disabled=false;
   SHARE.style.display='none'; guessCt=0;
   IN.value=''; IN.focus({preventScroll:true});
@@ -50,14 +57,12 @@ async function loadQ(){
 function countdown(){
   const diff = endTime - Date.now();
   if(diff <= 0){
-    if(!solved){                       // time-out ⇒ Game Over
-      S_BAD.play().catch(()=>{});
+    if(!solved){
+      S_GAMEO.play().catch(()=>{});                 // Game-Over sound
       OVER.style.display='flex';
       setLS('score',0); setLS('streak',0); updateHUD();
       CARD.classList.add('timesUp');
-      setTimeout(loadQ,1800);
-    }else{
-      loadQ();                         // safety fallback
+      setTimeout(()=>{ loadQ(); }, 2200);           // wait, then new clue
     }
     return;
   }
@@ -90,6 +95,7 @@ function guess(){
   if(g.toLowerCase()===current.answer.toLowerCase()){
     correctAnswer();
   }else{
+    S_BAD.play().catch(()=>{});
     RES.textContent='Nope';
   }
 }
@@ -98,8 +104,7 @@ function hint(){
   if(hintLv>=3) return;
   hintLv++; $('hintCount').textContent=3-hintLv;
   RES.textContent=current['hint'+hintLv]||'-';
-  setLS('score',Math.max(0,get('score')-1));
-  updateHUD(); toast('-1 pt');
+  setLS('score',Math.max(0,get('score')-1)); updateHUD(); toast('-1 pt');
   if(hintLv>=3) HINT.disabled=true;
 }
 
@@ -110,9 +115,8 @@ function share(){
   else{ navigator.clipboard.writeText(msg).then(()=>toast('Copied!')); }
 }
 
-/* ---------- first run ---------- */
+/* ---------- boot ---------- */
 document.addEventListener('DOMContentLoaded',()=>{
-  /* reset score/streak each new tab */
   if(!sessionStorage.getItem('tmv_session_started')){
       localStorage.setItem('tmv_score',0);
       localStorage.setItem('tmv_streak',0);
