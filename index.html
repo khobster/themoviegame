@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>The Movie Game</title>
 
-  <link rel="stylesheet" href="themoviegame.css" />
+  <link rel="stylesheet" href="themoviegame.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <script src="seedrandom.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 
 <body>
-  <!-- header bar -->
   <header id="topBar">
     <span id="logo">🎬 The Movie Game</span>
-    <span id="stats">
-      Score <span id="score">0</span> | Streak <span id="streak">0</span>
-    </span>
+    <span id="stats">Score <span id="score">0</span> | Streak <span id="streak">0</span></span>
   </header>
 
-  <!-- game card -->
   <main id="card">
     <img id="mascot" src="oscarlogobeanie.png" alt="Game mascot">
 
@@ -27,27 +23,20 @@
 
     <input id="userAnswer"
            placeholder="Type your guess & hit ↵"
-           autocomplete="off" />
+           autocomplete="off"
+           inputmode="text" />
 
     <div class="btnRow">
       <button id="submitAnswerBtn">hit</button>
-
-      <button id="hintBtn" class="iconBtn" title="Need a hint? –1 point">
-        💡 <span id="hintCount">3</span>
-      </button>
-
-      <button id="shareBtn" class="iconBtn" title="Share result" style="display:none;">
-        📤
-      </button>
+      <button id="hintBtn" class="iconBtn" title="Need a hint? –1 point">💡 <span id="hintCount">3</span></button>
+      <button id="shareBtn" class="iconBtn" title="Share result" style="display:none;">📤</button>
     </div>
 
     <div id="result" aria-live="polite"></div>
   </main>
 
-  <!-- toast area -->
   <div id="toastContainer"></div>
 
-  <!-- one-time how-to -->
   <dialog id="howTo">
     <h3>How to Play</h3>
     <ol>
@@ -59,7 +48,6 @@
     <button id="closeHowTo">Got it!</button>
   </dialog>
 
-  <!-- countdown -->
   <div id="countdownTimer">New clue in <span id="timer"></span></div>
 
   <script src="themoviegame.js"></script>
