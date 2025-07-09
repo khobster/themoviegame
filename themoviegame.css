@@ -75,3 +75,7 @@ dialog::backdrop{background:rgba(0,0,0,.45)}
 .arrow-blink{position:fixed;bottom:80px;right:81px;background:#fff;color:#000;font-weight:700;font-size:18px;
              padding:5px;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.2);animation:blink 1s linear infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ensure overlay is hidden until JS says otherwise */
+#gameOver{display:none;}
+
