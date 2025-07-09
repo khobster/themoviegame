@@ -6,8 +6,8 @@ const TXT=$('questionText'), IN=$('userAnswer'), BTN=$('submitAnswerBtn'),
       CARD=$('card'), TOAST=$('toastContainer'), OVER=$('gameOver');
 
 /* --- audio --- */
-const S_OK    = new Audio('https://vanillafrosting.agency/wp-content/uploads/2023/11/bing-bong.mp3');
-const S_BAD   = new Audio('https://vanillafrosting.agency/wp-content/uploads/2023/11/incorrect-answer-for-plunko.mp3');
+const S_OK    = new Audio('bing-bong.mp3');
+const S_BAD   = new Audio('incorrect-answer-for-plunko.mp3');
 const S_GAMEO = new Audio('gameoversound.mp3');   // in your repo
 
 /* prime audio on first click / tap so browsers allow autoplay */
