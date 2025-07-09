@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>The Movie Game</title>
 
-  <!-- favicon -->
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="favicon.png" type="image/png" />
 
-  <!-- styles & fonts -->
-  <link rel="stylesheet" href="themoviegame.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="themoviegame.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- libs -->
   <script src="seedrandom.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
@@ -23,7 +20,7 @@
   </header>
 
   <main id="card">
-    <img id="mascot" src="oscarlogobeanie.png" alt="Game mascot">
+    <img id="mascot" src="oscarlogobeanie.png" alt="Game mascot" />
 
     <p id="dailyQuestion"><span id="questionText"></span></p>
 
@@ -44,20 +41,17 @@
   </main>
 
   <!-- GAME OVER overlay -->
-  <div id="gameOver" hidden>GAME OVER</div>
+  <div id="gameOver">GAME OVER</div>
 
-  <!-- toast area -->
   <div id="toastContainer"></div>
 
-  <!-- one-time modal -->
   <dialog id="howTo">
     <h3>How to Play</h3>
     <ol>
       <li>Each clue is the <b>opposite</b> of a movie title.</li>
-      <li>Guess the film — unlimited tries.</li>
+      <li>Guess the film — unlimited tries within 45 seconds.</li>
       <li>Tap 💡 for up to 3 hints (-1 pt each).</li>
-      <li>New clue every <b>45&nbsp;sec</b>. Keep the streak alive!</li>
-      <li>One wrong guess ends the game.</li>
+      <li>Correct guess = +3 pts; score resets if time runs out.</li>
     </ol>
     <button id="closeHowTo">Got it!</button>
   </dialog>
