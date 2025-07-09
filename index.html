@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <title>The Movie Game</title>
 
+  <!-- favicon -->
   <link rel="icon" href="favicon.png" type="image/png" />
 
+  <!-- styles & fonts -->
   <link rel="stylesheet" href="themoviegame.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
@@ -31,9 +33,11 @@
 
     <div class="btnRow">
       <button id="submitAnswerBtn">hit</button>
+
       <button id="hintBtn" class="iconBtn" title="Need a hint? –1 point">
         💡 <span id="hintCount">3</span>
       </button>
+
       <button id="shareBtn" class="iconBtn" title="Share result" style="display:none;">📤</button>
     </div>
 
@@ -43,21 +47,30 @@
   <!-- GAME OVER overlay -->
   <div id="gameOver">GAME OVER</div>
 
+  <!-- toast area -->
   <div id="toastContainer"></div>
 
+  <!-- one-time how-to -->
   <dialog id="howTo">
     <h3>How to Play</h3>
     <ol>
       <li>Each clue is the <b>opposite</b> of a movie title.</li>
-      <li>Guess the film — unlimited tries within 45 seconds.</li>
-      <li>Tap 💡 for up to 3 hints (-1 pt each).</li>
-      <li>Correct guess = +3 pts; score resets if time runs out.</li>
+      <li>Guess the film — unlimited tries within 45&nbsp;seconds.</li>
+      <li>Tap 💡 for up to 3 hints (-1&nbsp;pt each).</li>
+      <li>Correct guess = +3&nbsp;pts; score resets if time runs out.</li>
     </ol>
     <button id="closeHowTo">Got it!</button>
   </dialog>
 
+  <!-- countdown -->
   <div id="countdownTimer">New clue in <span id="timer"></span></div>
 
+  <!-- game logic -->
   <script src="themoviegame.js"></script>
+
+  <!-- pre-loaded audio (so all browsers can decode) -->
+  <audio id="sndCorrect"  src="bing-bong.mp3"                        preload="auto" crossorigin="anonymous"></audio>
+  <audio id="sndWrong"    src="incorrect-answer-for-plunko.mp3"     preload="auto" crossorigin="anonymous"></audio>
+  <audio id="sndGameOver" src="gameoversound.mp3"                   preload="auto" crossorigin="anonymous"></audio>
 </body>
 </html>
