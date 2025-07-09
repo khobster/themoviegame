@@ -4,8 +4,14 @@
   <meta charset="UTF-8">
   <title>The Movie Game</title>
 
+  <!-- favicon -->
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <!-- styles & fonts -->
   <link rel="stylesheet" href="themoviegame.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- libs -->
   <script src="seedrandom.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
@@ -28,22 +34,30 @@
 
     <div class="btnRow">
       <button id="submitAnswerBtn">hit</button>
-      <button id="hintBtn" class="iconBtn" title="Need a hint? –1 point">💡 <span id="hintCount">3</span></button>
+      <button id="hintBtn" class="iconBtn" title="Need a hint? –1 point">
+        💡 <span id="hintCount">3</span>
+      </button>
       <button id="shareBtn" class="iconBtn" title="Share result" style="display:none;">📤</button>
     </div>
 
     <div id="result" aria-live="polite"></div>
   </main>
 
+  <!-- GAME OVER overlay -->
+  <div id="gameOver" hidden>GAME OVER</div>
+
+  <!-- toast area -->
   <div id="toastContainer"></div>
 
+  <!-- one-time modal -->
   <dialog id="howTo">
     <h3>How to Play</h3>
     <ol>
       <li>Each clue is the <b>opposite</b> of a movie title.</li>
       <li>Guess the film — unlimited tries.</li>
       <li>Tap 💡 for up to 3 hints (-1 pt each).</li>
-      <li>New clue every <b>2 min</b>. Keep the streak alive!</li>
+      <li>New clue every <b>45&nbsp;sec</b>. Keep the streak alive!</li>
+      <li>One wrong guess ends the game.</li>
     </ol>
     <button id="closeHowTo">Got it!</button>
   </dialog>
