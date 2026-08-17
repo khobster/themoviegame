@@ -3,74 +3,93 @@
 <head>
   <meta charset="UTF-8" />
   <title>The Movie Game</title>
-
-  <!-- favicon -->
   <link rel="icon" href="favicon.png" type="image/png" />
-
-  <!-- styles & fonts -->
-  <link rel="stylesheet" href="themoviegame.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-
-  <script src="seedrandom.js"></script>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="themoviegame.css?v=65" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Bebas+Neue&family=Anton&family=Oswald:wght@400;600&family=Monoton&family=Bungee&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;700&family=Space+Grotesk:wght@400;700&family=Archivo:wght@400;800&family=Cossette+Titre&family=BBH+Bogle&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 </head>
 
 <body>
   <header id="topBar">
-    <span id="logo">🎬 The Movie Game</span>
-    <span id="stats">Score <span id="score">0</span> | Streak <span id="streak">0</span></span>
+    <span id="logo">THE MOVIE GAME</span>
+    <span id="tagline">daily film puzzle</span>
   </header>
 
-  <main id="card">
-    <img id="mascot" src="oscarlogobeanie.png" alt="Game mascot" />
-
-    <p id="dailyQuestion"><span id="questionText"></span></p>
-
-    <input id="userAnswer"
-           placeholder="Type your guess & hit ↵"
-           autocomplete="off"
-           inputmode="text" />
-
-    <div class="btnRow">
-      <button id="submitAnswerBtn">hit</button>
-
-      <button id="hintBtn" class="iconBtn" title="Need a hint? –1 point">
-        💡 <span id="hintCount">3</span>
-      </button>
-
-      <button id="shareBtn" class="iconBtn" title="Share result" style="display:none;">📤</button>
+  <!-- ============ HOME ============ -->
+  <section id="view-home" class="view active">
+    <div class="stage">
+      <div class="marquee homeMarquee">THE<br>MOVIE<br>GAME</div>
+      <img class="mascot" src="oscarlogobeanie.png" alt="mascot" />
+      <p class="pitch">every clue is a movie flipped to its <b>opposite</b>. name the film.</p>
+      <button id="btn-daily" class="playBtn">▶ play today's reel</button>
+      <div class="homeMeta"><span id="home-daily-status">—</span> · 🔥 streak <span id="home-streak">0</span></div>
+      <a id="btn-archive" class="textLink">past reels ›</a>
     </div>
+  </section>
 
-    <div id="result" aria-live="polite"></div>
-  </main>
+  <!-- ============ DAILY REEL ============ -->
+  <section id="view-daily" class="view">
+    <div class="stage">
+      <a class="backLink homeLink">‹ back</a>
+      <div id="d-daynum" class="marquee reelMarquee"></div>
+      <div id="d-progress" class="progress">0 films</div>
+      <div id="d-tabs" class="reelTabs"></div>
 
-  <!-- GAME OVER overlay -->
-  <div id="gameOver">GAME OVER</div>
+      <div class="listing">
+        <span class="opp-label">opposite of</span>
+        <p id="d-clue" class="clue"></p>
+      </div>
+      <div id="d-hintArea" class="hintArea"></div>
 
-  <!-- toast area -->
-  <div id="toastContainer"></div>
+      <div class="play">
+        <input id="d-input" class="answer" placeholder="name the movie…" autocomplete="off" inputmode="text" />
+        <div class="btnRow">
+          <button id="d-submit" class="goBtn">GUESS</button>
+          <button id="d-hintBtn" class="iconBtn" title="need a hint?">💡</button>
+        </div>
+        <div class="subRow">
+          <span id="d-result" class="result" aria-live="polite"></span>
+          <button id="d-revealBtn" class="revealBtn" title="give up this movie">reveal</button>
+        </div>
+      </div>
 
-  <!-- one-time how-to -->
+      <div id="d-guestWrap" class="guestWrap"></div>
+
+      <div id="d-lock" class="lock" style="display:none"></div>
+      <button id="d-share" class="shareBtn" style="display:none">SHARE YOUR REEL</button>
+    </div>
+  </section>
+
+  <!-- ============ ARCHIVE ============ -->
+  <section id="view-archive" class="view">
+    <div class="stage">
+      <a class="backLink homeLink">‹ back</a>
+      <div class="marquee archHead">PAST REELS</div>
+      <p class="archNote">every reel you've missed. jump in anywhere.</p>
+      <div id="arch-grid" class="archGrid"></div>
+    </div>
+  </section>
+
+  <!-- how-to -->
   <dialog id="howTo">
-    <h3>How to Play</h3>
+    <h3>HOW IT WORKS</h3>
     <ol>
-      <li>Each clue is the <b>opposite</b> of a movie title.</li>
-      <li>Guess the film — unlimited tries within 45&nbsp;seconds.</li>
-      <li>Tap 💡 for up to 3 hints (-1&nbsp;pt each).</li>
-      <li>Correct guess = +3&nbsp;pts; score resets if time runs out.</li>
+      <li>every clue is a movie, flipped to its opposite. <i>“legs” is wings.</i></li>
+      <li>the daily reel is four movies on one board. they all secretly star the same actor. solve em in any order, jump around, come back.</li>
+      <li>then, <b>who is it?</b> name the actor for a bonus ⭐. clear the board to keep your streak.</li>
+      <li>a new reel every day. miss one? it's in <b>past reels</b>.</li>
+      <li>stuck? 💡 is a hint. <i>reveal</i> spills one movie.</li>
     </ol>
-    <button id="closeHowTo">Got it!</button>
+    <button id="closeHowTo">got it</button>
   </dialog>
 
-  <!-- countdown -->
-  <div id="countdownTimer">New clue in <span id="timer"></span></div>
+  <div id="toastContainer"></div>
 
-  <!-- game logic -->
-  <script src="themoviegame.js"></script>
+  <audio id="sndCorrect"  src="bing-bong.mp3" preload="auto"></audio>
+  <audio id="sndWrong"    src="incorrect-answer-for-plunko.mp3" preload="auto"></audio>
+  <audio id="sndGameOver" src="gameoversound.mp3" preload="auto"></audio>
 
-  <!-- pre-loaded audio (so all browsers can decode) -->
-  <audio id="sndCorrect"  src="bing-bong.mp3"                        preload="auto" crossorigin="anonymous"></audio>
-  <audio id="sndWrong"    src="incorrect-answer-for-plunko.mp3"     preload="auto" crossorigin="anonymous"></audio>
-  <audio id="sndGameOver" src="gameoversound.mp3"                   preload="auto" crossorigin="anonymous"></audio>
+  <script src="themoviegame.js?v=65"></script>
 </body>
 </html>
