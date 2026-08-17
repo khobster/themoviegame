@@ -26,7 +26,7 @@ let REELS = null;
 async function loadData(){
   if (!REELS){
     try {
-      REELS = await (await fetch('daily_reels.json?v=66')).json();
+      REELS = await (await fetch('daily_reels.json?v=67')).json();
       if (!Array.isArray(REELS) || !REELS.length) REELS = null;
     } catch(_) { REELS = null; }
   }
