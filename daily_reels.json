@@ -5,7 +5,7 @@
 "avgFame": 9.2,
 "clues": [
 {
-"question": "Losing Public Ryan",
+"question": "Losing Public Doyle",
 "answer": "Saving Private Ryan",
 "hint1": "S",
 "hint2": "1998",
@@ -117,14 +117,14 @@
 "hint3": "Paul Newman"
 },
 {
-"question": "Butch Cassidy and the Moondance Adult",
+"question": "Slim Callahan and the Moondance Adult",
 "answer": "Butch Cassidy and the Sundance Kid",
 "hint1": "B",
 "hint2": "1969",
 "hint3": "Paul Newman"
 },
 {
-"question": "None of the President's Women",
+"question": "None of the Citizen’s Women",
 "answer": "All the President's Men",
 "hint1": "A",
 "hint2": "1976",
@@ -159,7 +159,7 @@
 "hint3": "Paul Newman"
 },
 {
-"question": "Butch Cassidy and the Moondance Adult",
+"question": "Slim Callahan and the Moondance Adult",
 "answer": "Butch Cassidy and the Sundance Kid",
 "hint1": "B",
 "hint2": "1969",
@@ -373,7 +373,7 @@
 "hint3": "Jack Nicholson"
 },
 {
-"question": "Many Stayed Under the Cuckoo's Nest",
+"question": "Many Stayed Under the Sparrow's Burrow",
 "answer": "One Flew Over the Cuckoo's Nest",
 "hint1": "O",
 "hint2": "1975",
@@ -580,7 +580,7 @@
 "hint3": "John Wayne"
 },
 {
-"question": "The Woman Who Missed Liberty Valance",
+"question": "The Woman Who Missed Freedom Caldwell",
 "answer": "The Man Who Shot Liberty Valance",
 "hint1": "T",
 "hint2": "1962",
@@ -1263,7 +1263,7 @@
 "hint3": "John Wayne"
 },
 {
-"question": "The Woman Who Missed Liberty Valance",
+"question": "The Woman Who Missed Freedom Caldwell",
 "answer": "The Man Who Shot Liberty Valance",
 "hint1": "T",
 "hint2": "1962",
@@ -2477,7 +2477,7 @@
 "hint3": "Daniel Radcliffe"
 },
 {
-"question": "Sally Muggle and the Living Hallows: Part 1",
+"question": "Sally Muggle and the Living Relics: Part 1",
 "answer": "Harry Potter and the Deathly Hallows: Part 2",
 "hint1": "H",
 "hint2": "2011",
@@ -2546,7 +2546,7 @@
 "hint3": "Daniel Radcliffe"
 },
 {
-"question": "Sally Muggle and the Living Hallows: Part 1",
+"question": "Sally Muggle and the Living Relics: Part 1",
 "answer": "Harry Potter and the Deathly Hallows: Part 2",
 "hint1": "H",
 "hint2": "2011",
@@ -2615,7 +2615,7 @@
 "hint3": "Daniel Radcliffe"
 },
 {
-"question": "Sally Muggle and the Living Hallows: Part 1",
+"question": "Sally Muggle and the Living Relics: Part 1",
 "answer": "Harry Potter and the Deathly Hallows: Part 2",
 "hint1": "H",
 "hint2": "2011",
@@ -2836,7 +2836,7 @@
 "avgFame": 6.0,
 "clues": [
 {
-"question": "20,000 Leagues Above the Sky",
+"question": "50 Miles Above the Sky",
 "answer": "20,000 Leagues Under the Sea",
 "hint1": "2",
 "hint2": "1954",
@@ -3181,7 +3181,7 @@
 "avgFame": 2.0,
 "clues": [
 {
-"question": "The Normal Hate of Martha Ivers",
+"question": "The Normal Hate of Nancy Acres",
 "answer": "The Strange Love of Martha Ivers",
 "hint1": "T",
 "hint2": "1946",
@@ -4285,7 +4285,7 @@
 "avgFame": 1.5,
 "clues": [
 {
-"question": "Destry Walks Never",
+"question": "Cordell Walks Never",
 "answer": "Destry Rides Again",
 "hint1": "D",
 "hint2": "1939",
@@ -4975,7 +4975,7 @@
 "avgFame": 7.5,
 "clues": [
 {
-"question": "Losing Public Ryan",
+"question": "Losing Public Doyle",
 "answer": "Saving Private Ryan",
 "hint1": "S",
 "hint2": "1998",
@@ -5775,14 +5775,14 @@
 "hint3": "John Boyega"
 },
 {
-"question": "Moon Peace: Episode VII - The Weakness Sleeps",
+"question": "Moon Peace: Episode II - The Weakness Sleeps",
 "answer": "Star Wars: Episode VII - The Force Awakens",
 "hint1": "S",
 "hint2": "2015",
 "hint3": "Daisy Ridley"
 },
 {
-"question": "Moon Peace: Episode VIII - The First Sith",
+"question": "Moon Peace: Episode III - The First Sith",
 "answer": "Star Wars: Episode VIII - The Last Jedi",
 "hint1": "S",
 "hint2": "2017",
@@ -7645,7 +7645,7 @@
 "hint3": "Daniel Craig"
 },
 {
-"question": "Sally Muggle and the Living Hallows: Part 1",
+"question": "Sally Muggle and the Living Relics: Part 1",
 "answer": "Harry Potter and the Deathly Hallows: Part 2",
 "hint1": "H",
 "hint2": "2011",
@@ -7907,7 +7907,7 @@
 "guestLast": "Poulter",
 "clues": [
 {
-"question": "The Diaries of Narnia: The Stillness of the Dusk Walker",
+"question": "The Diaries of Aslandia: The Stillness of the Dusk Walker",
 "answer": "The Chronicles of Narnia: The Voyage of the Dawn Treader",
 "hint1": "T",
 "hint2": "2010",
@@ -7956,7 +7956,7 @@
 "hint3": "Henry Fonda"
 },
 {
-"question": "None of the President's Women",
+"question": "None of the Citizen’s Women",
 "answer": "All the President's Men",
 "hint1": "A",
 "hint2": "1976",
@@ -8294,7 +8294,7 @@
 "hint3": "Robin Williams"
 },
 {
-"question": "Bad Night, Vietnam",
+"question": "Bad Night, Cambodia",
 "answer": "Good Morning, Vietnam",
 "hint1": "G",
 "hint2": "1987",
@@ -8446,7 +8446,7 @@
 "hint3": "Wiley Wiggins"
 },
 {
-"question": "Sun Rising on Cedars",
+"question": "Sun Rising on Willows",
 "answer": "Snow Falling on Cedars",
 "hint1": "S",
 "hint2": "1999",
@@ -10129,7 +10129,7 @@
 "hint3": "Daniel Radcliffe"
 },
 {
-"question": "Sally Muggle and the Living Hallows: Part 1",
+"question": "Sally Muggle and the Living Relics: Part 1",
 "answer": "Harry Potter and the Deathly Hallows: Part 2",
 "hint1": "H",
 "hint2": "2011",
@@ -10916,7 +10916,7 @@
 "hint3": "Daniel Day-Lewis"
 },
 {
-"question": "My Right Hand: The Story of Christy Brown",
+"question": "My Right Hand: The Story of Danny Green",
 "answer": "My Left Foot: The Story of Christy Brown",
 "hint1": "M",
 "hint2": "1989",
@@ -12151,7 +12151,7 @@
 "avgFame": 5.2,
 "clues": [
 {
-"question": "20,000 Leagues Above the Sky",
+"question": "50 Miles Above the Sky",
 "answer": "20,000 Leagues Under the Sea",
 "hint1": "2",
 "hint2": "1954",
@@ -12337,7 +12337,7 @@
 "hint3": "Oscar Isaac"
 },
 {
-"question": "Moon Peace: Episode VII - The Weakness Sleeps",
+"question": "Moon Peace: Episode II - The Weakness Sleeps",
 "answer": "Star Wars: Episode VII - The Force Awakens",
 "hint1": "S",
 "hint2": "2015",
@@ -14221,7 +14221,7 @@
 "avgFame": 7.5,
 "clues": [
 {
-"question": "20,000 Leagues Above the Sky",
+"question": "50 Miles Above the Sky",
 "answer": "20,000 Leagues Under the Sea",
 "hint1": "2",
 "hint2": "1954",
@@ -14711,7 +14711,7 @@
 "hint3": "Dustin Hoffman"
 },
 {
-"question": "Butch Cassidy and the Moondance Adult",
+"question": "Slim Callahan and the Moondance Adult",
 "answer": "Butch Cassidy and the Sundance Kid",
 "hint1": "B",
 "hint2": "1969",
@@ -14849,7 +14849,7 @@
 "hint3": "Janet Gaynor"
 },
 {
-"question": "The Woman Who Missed Liberty Valance",
+"question": "The Woman Who Missed Freedom Caldwell",
 "answer": "The Man Who Shot Liberty Valance",
 "hint1": "T",
 "hint2": "1962",
@@ -15056,7 +15056,7 @@
 "hint3": "Robin Williams"
 },
 {
-"question": "None of the President's Women",
+"question": "None of the Citizen’s Women",
 "answer": "All the President's Men",
 "hint1": "A",
 "hint2": "1976",
@@ -15677,7 +15677,7 @@
 "hint3": "Billy Crystal"
 },
 {
-"question": "Bad Night, Vietnam",
+"question": "Bad Night, Cambodia",
 "answer": "Good Morning, Vietnam",
 "hint1": "G",
 "hint2": "1987",
@@ -16636,7 +16636,7 @@
 "avgFame": 6.0,
 "clues": [
 {
-"question": "None of the President's Women",
+"question": "None of the Citizen’s Women",
 "answer": "All the President's Men",
 "hint1": "A",
 "hint2": "1976",
@@ -16719,7 +16719,7 @@
 "hint3": "Frank Sinatra"
 },
 {
-"question": "Alexander's Classical Solo",
+"question": "Napoleon's Classical Solo",
 "answer": "Alexander's Ragtime Band",
 "hint1": "A",
 "hint2": "1938",
@@ -17195,7 +17195,7 @@
 "hint3": "Paul Newman"
 },
 {
-"question": "Butch Cassidy and the Moondance Adult",
+"question": "Slim Callahan and the Moondance Adult",
 "answer": "Butch Cassidy and the Sundance Kid",
 "hint1": "B",
 "hint2": "1969",
@@ -17685,7 +17685,7 @@
 "hint3": "Burt Lancaster"
 },
 {
-"question": "Go Away, Big Sheba",
+"question": "Go Away, Big Delilah",
 "answer": "Come Back, Little Sheba",
 "hint1": "C",
 "hint2": "1952",
@@ -20921,7 +20921,7 @@
 "hint3": "Robert Blake"
 },
 {
-"question": "Butch Cassidy and the Moondance Adult",
+"question": "Slim Callahan and the Moondance Adult",
 "answer": "Butch Cassidy and the Sundance Kid",
 "hint1": "B",
 "hint2": "1969",
@@ -22384,7 +22384,7 @@
 "hint3": "Howard Keel"
 },
 {
-"question": "Take 'em Heaven, Harry!",
+"question": "Take 'em Heaven, Walter!",
 "answer": "Give 'em Hell, Harry!",
 "hint1": "G",
 "hint2": "1975",
@@ -23626,7 +23626,7 @@
 "hint3": "Jerry Lewis"
 },
 {
-"question": "The Hollow Lead Cadillac",
+"question": "The Hollow Lead Buick",
 "answer": "The Solid Gold Cadillac",
 "hint1": "T",
 "hint2": "1956",
@@ -23957,7 +23957,7 @@
 "hint3": "James Cagney"
 },
 {
-"question": "The Woman Who Missed Liberty Valance",
+"question": "The Woman Who Missed Freedom Caldwell",
 "answer": "The Man Who Shot Liberty Valance",
 "hint1": "T",
 "hint2": "1962",
@@ -24937,7 +24937,7 @@
 "hint3": "Hayley Mills"
 },
 {
-"question": "Many-Blind Jacks",
+"question": "Many-Blind Queens",
 "answer": "One-Eyed Jacks",
 "hint1": "O",
 "hint2": "1961",
@@ -25337,7 +25337,7 @@
 "hint3": "Björk"
 },
 {
-"question": "The Old Boys of Rochefort",
+"question": "The Old Boys of Bordeaux",
 "answer": "The Young Girls of Rochefort",
 "hint1": "T",
 "hint2": "1967",
@@ -25613,7 +25613,7 @@
 "hint3": "Lee Marvin"
 },
 {
-"question": "The Woman Who Missed Liberty Valance",
+"question": "The Woman Who Missed Freedom Caldwell",
 "answer": "The Man Who Shot Liberty Valance",
 "hint1": "T",
 "hint2": "1962",
@@ -25696,7 +25696,7 @@
 "hint3": "Gregory Peck"
 },
 {
-"question": "Alley Discord of 1936",
+"question": "Alley Discord of 1822",
 "answer": "Broadway Melody of 1936",
 "hint1": "B",
 "hint2": "1935",
@@ -26448,7 +26448,7 @@
 "hint3": "Tyrone Power"
 },
 {
-"question": "The Public Death of Henry VIII",
+"question": "The Public Death of George IV",
 "answer": "The Private Life of Henry VIII",
 "hint1": "T",
 "hint2": "1933",
@@ -26779,7 +26779,7 @@
 "avgFame": 5.2,
 "clues": [
 {
-"question": "None of the President's Women",
+"question": "None of the Citizen’s Women",
 "answer": "All the President's Men",
 "hint1": "A",
 "hint2": "1976",
@@ -27007,7 +27007,7 @@
 "hint3": "John Wayne"
 },
 {
-"question": "Many-Blind Jacks",
+"question": "Many-Blind Queens",
 "answer": "One-Eyed Jacks",
 "hint1": "O",
 "hint2": "1961",
@@ -27283,7 +27283,7 @@
 "hint3": "Tyrone Power"
 },
 {
-"question": "Alexander's Classical Solo",
+"question": "Napoleon's Classical Solo",
 "answer": "Alexander's Ragtime Band",
 "hint1": "A",
 "hint2": "1938",
@@ -27614,7 +27614,7 @@
 "hint3": "James Stewart"
 },
 {
-"question": "Mrs. Deeds Stays from the Country",
+"question": "Mrs. Grants Stays from the Country",
 "answer": "Mr. Deeds Goes to Town",
 "hint1": "M",
 "hint2": "1936",
@@ -28511,7 +28511,7 @@
 "hint3": "James Stewart"
 },
 {
-"question": "Silver Givers of 1933",
+"question": "Silver Givers of 1952",
 "answer": "Gold Diggers of 1933",
 "hint1": "G",
 "hint2": "1933",
@@ -29401,7 +29401,7 @@
 "avgFame": 4.5,
 "clues": [
 {
-"question": "None of the President's Women",
+"question": "None of the Citizen’s Women",
 "answer": "All the President's Men",
 "hint1": "A",
 "hint2": "1976",
@@ -29753,7 +29753,7 @@
 "hint3": "Martin Landau"
 },
 {
-"question": "The Terrible World of the Sisters Grimm",
+"question": "The Terrible World of the Sisters Wright",
 "answer": "The Wonderful World of the Brothers Grimm",
 "hint1": "T",
 "hint2": "1962",
@@ -29794,7 +29794,7 @@
 "hint3": "Zachary Levi"
 },
 {
-"question": "Shazam! Calm of the Mortals",
+"question": "Kazaam! Calm of the Mortals",
 "answer": "Shazam! Fury of the Gods",
 "hint1": "S",
 "hint2": "2023",
@@ -30022,7 +30022,7 @@
 "avgFame": 3.8,
 "clues": [
 {
-"question": "Queen Solomon's Caves",
+"question": "Queen Hadrian's Caves",
 "answer": "King Solomon's Mines",
 "hint1": "K",
 "hint2": "1985",
@@ -30167,7 +30167,7 @@
 "hint3": "Gary Cooper"
 },
 {
-"question": "Many-Blind Jacks",
+"question": "Many-Blind Queens",
 "answer": "One-Eyed Jacks",
 "hint1": "O",
 "hint2": "1961",
@@ -31823,7 +31823,7 @@
 "hint3": "Cher"
 },
 {
-"question": "Mrs. Holland's Failure",
+"question": "Mrs. Garland's Failure",
 "answer": "Mr. Holland's Opus",
 "hint1": "M",
 "hint2": "1995",
@@ -33907,7 +33907,7 @@
 "hint3": "Bobby Driscoll"
 },
 {
-"question": "Aversion Above the Elms",
+"question": "Aversion Above the Oaks",
 "answer": "Desire Under the Elms",
 "hint1": "D",
 "hint2": "1958",
@@ -34783,7 +34783,7 @@
 "avgFame": 5.0,
 "clues": [
 {
-"question": "20,000 Leagues Above the Sky",
+"question": "50 Miles Above the Sky",
 "answer": "20,000 Leagues Under the Sea",
 "hint1": "2",
 "hint2": "1954",
@@ -35687,7 +35687,7 @@
 "hint3": "Lee Marvin"
 },
 {
-"question": "Go Away, Big Sheba",
+"question": "Go Away, Big Delilah",
 "answer": "Come Back, Little Sheba",
 "hint1": "C",
 "hint2": "1952",
@@ -37067,7 +37067,7 @@
 "hint3": "Meryl Streep"
 },
 {
-"question": "Mrs. Holland's Failure",
+"question": "Mrs. Garland's Failure",
 "answer": "Mr. Holland's Opus",
 "hint1": "M",
 "hint2": "1995",
@@ -38185,7 +38185,7 @@
 "hint3": "Barbara Stanwyck"
 },
 {
-"question": "The Normal Hate of Martha Ivers",
+"question": "The Normal Hate of Nancy Acres",
 "answer": "The Strange Love of Martha Ivers",
 "hint1": "T",
 "hint2": "1946",
@@ -38516,7 +38516,7 @@
 "hint3": "Don Ameche"
 },
 {
-"question": "Alexander's Classical Solo",
+"question": "Napoleon's Classical Solo",
 "answer": "Alexander's Ragtime Band",
 "hint1": "A",
 "hint2": "1938",
@@ -39910,7 +39910,7 @@
 "hint3": "John Payne"
 },
 {
-"question": "Goodbye, Frisco, Goodbye",
+"question": "Goodbye, Gotham, Goodbye",
 "answer": "Hello, Frisco, Hello",
 "hint1": "H",
 "hint2": "1943",
@@ -40151,7 +40151,7 @@
 "hint3": "Jack Black"
 },
 {
-"question": "Taco Libre",
+"question": "Taco Gratuito",
 "answer": "Nacho Libre",
 "hint1": "N",
 "hint2": "2006",
@@ -40303,7 +40303,7 @@
 "avgFame": 4.5,
 "clues": [
 {
-"question": "Mrs. Deeds Stays from the Country",
+"question": "Mrs. Grants Stays from the Country",
 "answer": "Mr. Deeds Goes to Town",
 "hint1": "M",
 "hint2": "1936",
@@ -40593,7 +40593,7 @@
 "hint3": "Audrey Hepburn"
 },
 {
-"question": "Queen Solomon's Caves",
+"question": "Queen Hadrian's Caves",
 "answer": "King Solomon's Mines",
 "hint1": "K",
 "hint2": "1985",
@@ -41145,7 +41145,7 @@
 "hint3": "Ethel Merman"
 },
 {
-"question": "Alexander's Classical Solo",
+"question": "Napoleon's Classical Solo",
 "answer": "Alexander's Ragtime Band",
 "hint1": "A",
 "hint2": "1938",
@@ -41959,7 +41959,7 @@
 "avgFame": 4.8,
 "clues": [
 {
-"question": "20,000 Leagues Above the Sky",
+"question": "50 Miles Above the Sky",
 "answer": "20,000 Leagues Under the Sea",
 "hint1": "2",
 "hint2": "1954",
@@ -42049,7 +42049,7 @@
 "hint3": "Kirk Douglas"
 },
 {
-"question": "Brown Dust of Wyoming",
+"question": "Brown Dust of Montana",
 "answer": "Green Grass of Wyoming",
 "hint1": "G",
 "hint2": "1948",
@@ -42111,7 +42111,7 @@
 "hint3": "Ava Gardner"
 },
 {
-"question": "Go Away, Big Sheba",
+"question": "Go Away, Big Delilah",
 "answer": "Come Back, Little Sheba",
 "hint1": "C",
 "hint2": "1952",
@@ -42352,7 +42352,7 @@
 "hint3": "Jake Gyllenhaal"
 },
 {
-"question": "Treat 'n Trick",
+"question": "Prank 'n Prize",
 "answer": "Trick 'r Treat",
 "hint1": "T",
 "hint2": "2007",
@@ -42663,7 +42663,7 @@
 "hint3": "Gary Cooper"
 },
 {
-"question": "Aversion Above the Elms",
+"question": "Aversion Above the Oaks",
 "answer": "Desire Under the Elms",
 "hint1": "D",
 "hint2": "1958",
@@ -42794,7 +42794,7 @@
 "hint3": "Bette Davis"
 },
 {
-"question": "The Public Death of Henry VIII",
+"question": "The Public Death of George IV",
 "answer": "The Private Life of Henry VIII",
 "hint1": "T",
 "hint2": "1933",
@@ -42946,7 +42946,7 @@
 "hint3": "Fred Astaire"
 },
 {
-"question": "A Minor minus a Major",
+"question": "The Colonel and the Corporal",
 "answer": "The Major and the Minor",
 "hint1": "T",
 "hint2": "1942",
@@ -43415,7 +43415,7 @@
 "hint3": "Ava Gardner"
 },
 {
-"question": "Night against Day",
+"question": "Dusk against Dawn",
 "answer": "Day for Night",
 "hint1": "D",
 "hint2": "1973",
@@ -43981,7 +43981,7 @@
 "hint3": "Dorothy McGuire"
 },
 {
-"question": "Silver Givers of 1933",
+"question": "Silver Givers of 1952",
 "answer": "Gold Diggers of 1933",
 "hint1": "G",
 "hint2": "1933",
@@ -44098,7 +44098,7 @@
 "avgFame": 3.0,
 "clues": [
 {
-"question": "Night against Day",
+"question": "Dusk against Dawn",
 "answer": "Day for Night",
 "hint1": "D",
 "hint2": "1973",
@@ -44395,7 +44395,7 @@
 "hint3": "William Powell"
 },
 {
-"question": "Silver Miners of 1935",
+"question": "Silver Miners of 1952",
 "answer": "Gold Diggers of 1935",
 "hint1": "G",
 "hint2": "1935",
@@ -44788,7 +44788,7 @@
 "avgFame": 3.0,
 "clues": [
 {
-"question": "Tomorrow, Tonight and Yesterday",
+"question": "Next Week, Tonight and Last Month",
 "answer": "Yesterday, Today and Tomorrow",
 "hint1": "Y",
 "hint2": "1963",
@@ -45140,7 +45140,7 @@
 "hint3": "Joel McCrea"
 },
 {
-"question": "A Minor minus a Major",
+"question": "The Colonel and the Corporal",
 "answer": "The Major and the Minor",
 "hint1": "T",
 "hint2": "1942",
@@ -46375,7 +46375,7 @@
 "avgFame": 3.0,
 "clues": [
 {
-"question": "Tomorrow, Tonight and Yesterday",
+"question": "Next Week, Tonight and Last Month",
 "answer": "Yesterday, Today and Tomorrow",
 "hint1": "Y",
 "hint2": "1963",
@@ -47686,7 +47686,7 @@
 "avgFame": 2.5,
 "clues": [
 {
-"question": "Hell Ignores, Mrs. Allison",
+"question": "Hell Ignores, Mrs. Morrison",
 "answer": "Heaven Knows, Mr. Allison",
 "hint1": "H",
 "hint2": "1957",
@@ -48962,7 +48962,7 @@
 "guestLast": "Jenkins",
 "clues": [
 {
-"question": "Misery with Jane and Dick",
+"question": "Misery with Clara and Hank",
 "answer": "Fun with Dick and Jane",
 "hint1": "F",
 "hint2": "2005",
@@ -49204,7 +49204,7 @@
 "avgFame": 2.5,
 "clues": [
 {
-"question": "Mrs. Deeds Stays from the Country",
+"question": "Mrs. Grants Stays from the Country",
 "answer": "Mr. Deeds Goes to Town",
 "hint1": "M",
 "hint2": "1936",
@@ -49528,7 +49528,7 @@
 "hint3": "Ethan Hawke"
 },
 {
-"question": "Mrs. Bean's Workday",
+"question": "Mrs. Pickle's Workday",
 "answer": "Mr. Bean's Holiday",
 "hint1": "M",
 "hint2": "2007",
@@ -49901,7 +49901,7 @@
 "hint3": "Kirk Douglas"
 },
 {
-"question": "Silver Givers of 1933",
+"question": "Silver Givers of 1952",
 "answer": "Gold Diggers of 1933",
 "hint1": "G",
 "hint2": "1933",
@@ -50722,7 +50722,7 @@
 "avgFame": 3.0,
 "clues": [
 {
-"question": "Mrs. Deeds Stays from the Country",
+"question": "Mrs. Grants Stays from the Country",
 "answer": "Mr. Deeds Goes to Town",
 "hint1": "M",
 "hint2": "1936",
@@ -51136,7 +51136,7 @@
 "avgFame": 2.5,
 "clues": [
 {
-"question": "Mrs. Deeds Stays from the Country",
+"question": "Mrs. Grants Stays from the Country",
 "answer": "Mr. Deeds Goes to Town",
 "hint1": "M",
 "hint2": "1936",
@@ -51426,7 +51426,7 @@
 "hint3": "Burt Lancaster"
 },
 {
-"question": "Hell Ignores, Mrs. Allison",
+"question": "Hell Ignores, Mrs. Morrison",
 "answer": "Heaven Knows, Mr. Allison",
 "hint1": "H",
 "hint2": "1957",
@@ -53903,7 +53903,7 @@
 "hint3": "John Barrymore"
 },
 {
-"question": "Alexander's Classical Solo",
+"question": "Napoleon's Classical Solo",
 "answer": "Alexander's Ragtime Band",
 "hint1": "A",
 "hint2": "1938",
@@ -53979,7 +53979,7 @@
 "hint3": "Robert Taylor"
 },
 {
-"question": "Destry Walks Never",
+"question": "Cordell Walks Never",
 "answer": "Destry Rides Again",
 "hint1": "D",
 "hint2": "1939",
@@ -54172,7 +54172,7 @@
 "avgFame": 3.2,
 "clues": [
 {
-"question": "The Public Death of Henry VIII",
+"question": "The Public Death of George IV",
 "answer": "The Private Life of Henry VIII",
 "hint1": "T",
 "hint2": "1933",
@@ -55021,7 +55021,7 @@
 "hint3": "Barbara Stanwyck"
 },
 {
-"question": "The Normal Hate of Martha Ivers",
+"question": "The Normal Hate of Nancy Acres",
 "answer": "The Strange Love of Martha Ivers",
 "hint1": "T",
 "hint2": "1946",
@@ -55462,7 +55462,7 @@
 "hint3": "Demi Moore"
 },
 {
-"question": "St. Elmo's Ice",
+"question": "St. Jude's Ice",
 "answer": "St. Elmo's Fire",
 "hint1": "S",
 "hint2": "1985",
@@ -55504,7 +55504,7 @@
 "hint3": "Clark Gable"
 },
 {
-"question": "Aversion Above the Elms",
+"question": "Aversion Above the Oaks",
 "answer": "Desire Under the Elms",
 "hint1": "D",
 "hint2": "1958",
@@ -56049,7 +56049,7 @@
 "hint3": "Richard Barthelmess"
 },
 {
-"question": "Silver Miners of 1935",
+"question": "Silver Miners of 1952",
 "answer": "Gold Diggers of 1935",
 "hint1": "G",
 "hint2": "1935",
@@ -56076,7 +56076,7 @@
 "hint3": "Zachary Levi"
 },
 {
-"question": "Shazam! Calm of the Mortals",
+"question": "Kazaam! Calm of the Mortals",
 "answer": "Shazam! Fury of the Gods",
 "hint1": "S",
 "hint2": "2023",
@@ -56808,7 +56808,7 @@
 "hint3": "Irene Dunne"
 },
 {
-"question": "The Terrible World of the Sisters Grimm",
+"question": "The Terrible World of the Sisters Wright",
 "answer": "The Wonderful World of the Brothers Grimm",
 "hint1": "T",
 "hint2": "1962",
@@ -57367,7 +57367,7 @@
 "hint3": "Fred Astaire"
 },
 {
-"question": "Goodbye, Frisco, Goodbye",
+"question": "Goodbye, Gotham, Goodbye",
 "answer": "Hello, Frisco, Hello",
 "hint1": "H",
 "hint2": "1943",
@@ -57498,7 +57498,7 @@
 "hint3": "Lana Turner"
 },
 {
-"question": "The Normal Hate of Martha Ivers",
+"question": "The Normal Hate of Nancy Acres",
 "answer": "The Strange Love of Martha Ivers",
 "hint1": "T",
 "hint2": "1946",
@@ -57629,7 +57629,7 @@
 "hint3": "Marilyn Miller"
 },
 {
-"question": "Destry Walks Never",
+"question": "Cordell Walks Never",
 "answer": "Destry Rides Again",
 "hint1": "D",
 "hint2": "1939",
@@ -57712,7 +57712,7 @@
 "hint3": "James Cagney"
 },
 {
-"question": "The Ordinary Mr. Holliday",
+"question": "The Ordinary Mr. Callaway",
 "answer": "The Amazing Mrs. Holliday",
 "hint1": "T",
 "hint2": "1943",
@@ -57981,14 +57981,14 @@
 "hint3": "Deanna Durbin"
 },
 {
-"question": "Destry Walks Never",
+"question": "Cordell Walks Never",
 "answer": "Destry Rides Again",
 "hint1": "D",
 "hint2": "1939",
 "hint3": "James Stewart"
 },
 {
-"question": "Down in Mabel's Basement",
+"question": "Down in Priscilla's Basement",
 "answer": "Up in Mabel's Room",
 "hint1": "U",
 "hint2": "1944",
@@ -58726,7 +58726,7 @@
 "avgFame": 2.2,
 "clues": [
 {
-"question": "A Minor minus a Major",
+"question": "The Colonel and the Corporal",
 "answer": "The Major and the Minor",
 "hint1": "T",
 "hint2": "1942",
@@ -58809,7 +58809,7 @@
 "hint3": "Abbott and Costello"
 },
 {
-"question": "Down in Mabel's Basement",
+"question": "Down in Priscilla's Basement",
 "answer": "Up in Mabel's Room",
 "hint1": "U",
 "hint2": "1944",
@@ -60175,7 +60175,7 @@
 "avgFame": 2.0,
 "clues": [
 {
-"question": "Silver Givers of 1933",
+"question": "Silver Givers of 1952",
 "answer": "Gold Diggers of 1933",
 "hint1": "G",
 "hint2": "1933",
@@ -60603,7 +60603,7 @@
 "hint3": "Jane Fonda"
 },
 {
-"question": "The Terrible World of the Sisters Grimm",
+"question": "The Terrible World of the Sisters Wright",
 "answer": "The Wonderful World of the Brothers Grimm",
 "hint1": "T",
 "hint2": "1962",
@@ -60879,7 +60879,7 @@
 "hint3": "Deanna Durbin"
 },
 {
-"question": "Destry Walks Never",
+"question": "Cordell Walks Never",
 "answer": "Destry Rides Again",
 "hint1": "D",
 "hint2": "1939",
@@ -61493,7 +61493,7 @@
 "hint3": "Fred Astaire"
 },
 {
-"question": "Big Billy Winkie",
+"question": "Big Billy Bumble",
 "answer": "Wee Willie Winkie",
 "hint1": "W",
 "hint2": "1937",
@@ -62093,7 +62093,7 @@
 "hint3": "Matt Damon"
 },
 {
-"question": "Misery with Jane and Dick",
+"question": "Misery with Clara and Hank",
 "answer": "Fun with Dick and Jane",
 "hint1": "F",
 "hint2": "2005",
@@ -62528,7 +62528,7 @@
 "hint3": "Fred Astaire"
 },
 {
-"question": "Go Away, Big Sheba",
+"question": "Go Away, Big Delilah",
 "answer": "Come Back, Little Sheba",
 "hint1": "C",
 "hint2": "1952",
@@ -65143,7 +65143,7 @@
 "avgFame": 2.5,
 "clues": [
 {
-"question": "The Terrible World of the Sisters Grimm",
+"question": "The Terrible World of the Sisters Wright",
 "answer": "The Wonderful World of the Brothers Grimm",
 "hint1": "T",
 "hint2": "1962",
@@ -65226,7 +65226,7 @@
 "hint3": "Ronald Colman"
 },
 {
-"question": "The Ordinary Mr. Holliday",
+"question": "The Ordinary Mr. Callaway",
 "answer": "The Amazing Mrs. Holliday",
 "hint1": "T",
 "hint2": "1943",
@@ -65640,7 +65640,7 @@
 "hint3": "Louis Hayward"
 },
 {
-"question": "The Shack of the Zero Gables",
+"question": "The Shack of the Zero Dormers",
 "answer": "The House of the Seven Gables",
 "hint1": "T",
 "hint2": "1940",
@@ -66130,7 +66130,7 @@
 "hint3": "Gene Autry"
 },
 {
-"question": "Goodbye, Frisco, Goodbye",
+"question": "Goodbye, Gotham, Goodbye",
 "answer": "Hello, Frisco, Hello",
 "hint1": "H",
 "hint2": "1943",
@@ -66330,7 +66330,7 @@
 "hint3": "Debbie Reynolds"
 },
 {
-"question": "Silver Miners of 1935",
+"question": "Silver Miners of 1952",
 "answer": "Gold Diggers of 1935",
 "hint1": "G",
 "hint2": "1935",
@@ -66537,7 +66537,7 @@
 "hint3": "Paul Newman"
 },
 {
-"question": "The One Big Foys",
+"question": "The One Big Loys",
 "answer": "The Seven Little Foys",
 "hint1": "T",
 "hint2": "1955",
@@ -66958,7 +66958,7 @@
 "hint3": "Bob Hope"
 },
 {
-"question": "The One Big Foys",
+"question": "The One Big Loys",
 "answer": "The Seven Little Foys",
 "hint1": "T",
 "hint2": "1955",
@@ -67165,7 +67165,7 @@
 "hint3": "Bette Davis"
 },
 {
-"question": "The Ordinary Mr. Holliday",
+"question": "The Ordinary Mr. Callaway",
 "answer": "The Amazing Mrs. Holliday",
 "hint1": "T",
 "hint2": "1943",
@@ -67213,7 +67213,7 @@
 "avgFame": 2.2,
 "clues": [
 {
-"question": "Big Billy Winkie",
+"question": "Big Billy Bumble",
 "answer": "Wee Willie Winkie",
 "hint1": "W",
 "hint2": "1937",
@@ -68062,7 +68062,7 @@
 "hint3": "James Stewart"
 },
 {
-"question": "Silver Miners of 1935",
+"question": "Silver Miners of 1952",
 "answer": "Gold Diggers of 1935",
 "hint1": "G",
 "hint2": "1935",
@@ -68393,7 +68393,7 @@
 "hint3": "Alice Faye"
 },
 {
-"question": "Alexander's Classical Solo",
+"question": "Napoleon's Classical Solo",
 "answer": "Alexander's Ragtime Band",
 "hint1": "A",
 "hint2": "1938",
@@ -69442,7 +69442,7 @@
 "hint3": "George Brent"
 },
 {
-"question": "The Shack of the Zero Gables",
+"question": "The Shack of the Zero Dormers",
 "answer": "The House of the Seven Gables",
 "hint1": "T",
 "hint2": "1940",
@@ -69607,7 +69607,7 @@
 "hint3": "Nicholas Hoult"
 },
 {
-"question": "Pedro del Toro's Gepetto",
+"question": "Pedro Ramirez's Gepetto",
 "answer": "Guillermo del Toro's Pinocchio",
 "hint1": "G",
 "hint2": "2022",
@@ -69711,7 +69711,7 @@
 "hint3": "Bette Davis"
 },
 {
-"question": "The Ordinary Mr. Holliday",
+"question": "The Ordinary Mr. Callaway",
 "answer": "The Amazing Mrs. Holliday",
 "hint1": "T",
 "hint2": "1943",
@@ -69773,7 +69773,7 @@
 "hint3": "Marlene Dietrich"
 },
 {
-"question": "Alley Discord of 1936",
+"question": "Alley Discord of 1822",
 "answer": "Broadway Melody of 1936",
 "hint1": "B",
 "hint2": "1935",
@@ -70042,7 +70042,7 @@
 "avgFame": 2.0,
 "clues": [
 {
-"question": "Big Billy Winkie",
+"question": "Big Billy Bumble",
 "answer": "Wee Willie Winkie",
 "hint1": "W",
 "hint2": "1937",
@@ -70456,14 +70456,14 @@
 "avgFame": 2.0,
 "clues": [
 {
-"question": "Silver Miners of 1935",
+"question": "Silver Miners of 1952",
 "answer": "Gold Diggers of 1935",
 "hint1": "G",
 "hint2": "1935",
 "hint3": "Eleanor Powell"
 },
 {
-"question": "Miss Funeral of 1941",
+"question": "Miss Funeral of 1958",
 "answer": "Hit Parade of 1941",
 "hint1": "H",
 "hint2": "1941",
@@ -70615,7 +70615,7 @@
 "hint3": "Mickey Rooney"
 },
 {
-"question": "Down in Mabel's Basement",
+"question": "Down in Priscilla's Basement",
 "answer": "Up in Mabel's Room",
 "hint1": "U",
 "hint2": "1944",
@@ -71367,7 +71367,7 @@
 "hint3": "Dick Powell"
 },
 {
-"question": "Goodbye, Frisco, Goodbye",
+"question": "Goodbye, Gotham, Goodbye",
 "answer": "Hello, Frisco, Hello",
 "hint1": "H",
 "hint2": "1943",
@@ -71698,7 +71698,7 @@
 "avgFame": 1.2,
 "clues": [
 {
-"question": "The Ordinary Mr. Holliday",
+"question": "The Ordinary Mr. Callaway",
 "answer": "The Amazing Mrs. Holliday",
 "hint1": "T",
 "hint2": "1943",
@@ -71926,7 +71926,7 @@
 "hint3": "Don Ameche"
 },
 {
-"question": "Down in Mabel's Basement",
+"question": "Down in Priscilla's Basement",
 "answer": "Up in Mabel's Room",
 "hint1": "U",
 "hint2": "1944",
@@ -71995,7 +71995,7 @@
 "hint3": "Walter Brennan"
 },
 {
-"question": "Goodbye, Frisco, Goodbye",
+"question": "Goodbye, Gotham, Goodbye",
 "answer": "Hello, Frisco, Hello",
 "hint1": "H",
 "hint2": "1943",
@@ -72126,7 +72126,7 @@
 "hint3": "John Wayne"
 },
 {
-"question": "The Ordinary Mr. Holliday",
+"question": "The Ordinary Mr. Callaway",
 "answer": "The Amazing Mrs. Holliday",
 "hint1": "T",
 "hint2": "1943",
@@ -72540,7 +72540,7 @@
 "hint3": "Al Jolson"
 },
 {
-"question": "Miss Funeral of 1941",
+"question": "Miss Funeral of 1958",
 "answer": "Hit Parade of 1941",
 "hint1": "H",
 "hint2": "1941",
@@ -72719,7 +72719,7 @@
 "hint3": "Darsheel Safary"
 },
 {
-"question": "Pale Singh Chaddha",
+"question": "Pale Singh Sharma",
 "answer": "Laal Singh Chaddha",
 "hint1": "L",
 "hint2": "2022",
@@ -72809,7 +72809,7 @@
 "hint3": "Joan Fontaine"
 },
 {
-"question": "Brown Dust of Wyoming",
+"question": "Brown Dust of Montana",
 "answer": "Green Grass of Wyoming",
 "hint1": "G",
 "hint2": "1948",
@@ -73092,7 +73092,7 @@
 "hint3": "James Stewart"
 },
 {
-"question": "Goodbye, Frisco, Goodbye",
+"question": "Goodbye, Gotham, Goodbye",
 "answer": "Hello, Frisco, Hello",
 "hint1": "H",
 "hint2": "1943",
@@ -73759,7 +73759,7 @@
 "guestLast": "Carrey",
 "clues": [
 {
-"question": "Misery with Jane and Dick",
+"question": "Misery with Clara and Hank",
 "answer": "Fun with Dick and Jane",
 "hint1": "F",
 "hint2": "2005",
@@ -74283,7 +74283,7 @@
 "hint3": "Rowan Atkinson"
 },
 {
-"question": "Mrs. Bean's Workday",
+"question": "Mrs. Pickle's Workday",
 "answer": "Mr. Bean's Holiday",
 "hint1": "M",
 "hint2": "2007",
