@@ -165,43 +165,87 @@ function renderProgress(){
   $('d-progress').textContent=`${solved}/${reel.statuses.length} films`;
 }
 
-/* ----- guess via popup (keeps the phone keyboard from moving the board) -----
-   one popup, two modes: 'clue' (name the movie) and 'guest' (name the actor) */
+/* ----- guess via popup with our OWN on-screen keyboard (never the native one,
+   so the board never moves). one popup, two modes: 'clue' / 'guest' ----- */
 let guessMode='clue';
+let typed='';
+let gmPlaceholder='name the movie…';
+
+const KB_ROWS = [
+  ['q','w','e','r','t','y','u','i','o','p'],
+  ['a','s','d','f','g','h','j','k','l'],
+  ['z','x','c','v','b','n','m','back'],
+  ['space']
+];
+function buildGuessKeyboard(){
+  const kb=$('gm-kbd'); if(!kb) return;
+  kb.innerHTML='';
+  KB_ROWS.forEach(row=>{
+    const r=document.createElement('div'); r.className='krow';
+    row.forEach(k=>{
+      const b=document.createElement('button'); b.type='button';
+      b.className='gm-key'+(k==='back'?' back':'')+(k==='space'?' wide':'');
+      b.textContent = k==='back' ? '⌫' : k==='space' ? 'space' : k;
+      b.onclick=()=>{ if(k==='back') pressBack(); else if(k==='space') pressSpace(); else pressKey(k); };
+      r.appendChild(b);
+    });
+    kb.appendChild(r);
+  });
+}
+function renderTyped(){
+  const t=$('gm-typed'); if(!t) return;
+  t.textContent = typed ? typed : gmPlaceholder;
+  t.classList.toggle('empty', !typed);
+}
+function pressKey(ch){ if(typed.length<60){ typed+=ch; renderTyped(); } }
+function pressBack(){ typed=typed.slice(0,-1); renderTyped(); }
+function pressSpace(){ if(typed && typed.slice(-1)!==' ' && typed.length<60){ typed+=' '; renderTyped(); } }
+
 function openGuessModal(mode){
   mode = mode==='guest' ? 'guest' : 'clue';
   if(mode==='clue'){
     const i=reel.active; if(!reel.data || reel.statuses[i]!=='open') return;
     $('gm-opp').textContent='OPPOSITE OF';
     $('gm-clue').textContent=reel.data.clues[i].question;
-    $('gm-input').placeholder='name the movie…';
+    gmPlaceholder='name the movie…';
   } else {
     if(!reel.data || reel.guestGot || reel.done) return;
     $('gm-opp').textContent='WHO IS IT?';
     $('gm-clue').textContent='one actor is in all four films';
-    $('gm-input').placeholder='name the actor…';
+    gmPlaceholder='name the actor…';
   }
   guessMode=mode;
-  $('gm-input').value=''; $('gm-msg').textContent='';
+  typed=''; renderTyped(); $('gm-msg').textContent='';
   $('guessModal').classList.add('open'); document.body.classList.add('modal-open');
-  setTimeout(()=>$('gm-input').focus({preventScroll:true}),40);
 }
 function closeGuessModal(){
   $('guessModal').classList.remove('open'); document.body.classList.remove('modal-open');
 }
 function submitModal(){
-  if(guessMode==='guest') submitGuestGuess($('gm-input').value);
-  else submitGuess($('gm-input').value);
+  if(guessMode==='guest') submitGuestGuess(typed);
+  else submitGuess(typed);
 }
 function submitGuess(v){
   const i=reel.active; if(reel.statuses[i]!=='open') return;
   v=(v||'').trim(); if(!v) return;
   if(isMatch(v, reel.data.clues[i].answer)){
-    reel.statuses[i]='solved'; play(S_OK); closeGuessModal(); afterClueResolved(true);
+    reel.statuses[i]='solved'; play(S_OK); showPow('YES!'); closeGuessModal(); afterClueResolved(true);
   } else {
-    play(S_BAD); $('gm-msg').textContent='nope, try another';
-    $('gm-input').value=''; $('gm-input').focus({preventScroll:true});
+    play(S_BAD); showPow('NO!'); $('gm-msg').textContent='nope, try another'; typed=''; renderTyped();
   }
+}
+
+/* ===== YES! / NO! metallic 3D brick pop (ported from mookie) ===== */
+function showPow(message){
+  const wrap=document.createElement('div');
+  wrap.style.cssText='position:fixed;inset:0;display:grid;place-items:center;z-index:9999;pointer-events:none';
+  const isYes=(message==='YES!');
+  const txt=document.createElement('div');
+  txt.textContent=message;
+  txt.className='pow-brick '+(isYes?'pow-gold':'pow-silver');
+  txt.style.fontSize = isYes ? 'clamp(120px,36vw,280px)' : 'clamp(100px,30vw,240px)';
+  wrap.appendChild(txt); document.body.appendChild(wrap);
+  setTimeout(()=>{ try{document.body.removeChild(wrap);}catch(_){} },900);
 }
 function dailyHint(){
   const i=reel.active; if(reel.statuses[i]!=='open'||reel.hints[i]>=2) return;
@@ -244,12 +288,12 @@ function renderGuest(){
 function submitGuestGuess(v){
   v=(v||'').trim(); if(!v) return;
   if(matchGuest(v, reel.data)){
-    reel.guestGot=true; play(S_GAMEO); toast('bonus, nice'); saveReel();   // cool music sting for nailing the actor
+    reel.guestGot=true; play(S_GAMEO); showPow('YES!'); toast('bonus, nice'); saveReel();   // cool music sting for nailing the actor
     closeGuessModal();
     if(reel.filmsDone) lockReel(); else renderGuest();
   } else {
-    reel.guestTries++; play(S_BAD); saveReel();
-    $('gm-msg').textContent='nope, try again'; $('gm-input').value=''; $('gm-input').focus({preventScroll:true});
+    reel.guestTries++; play(S_BAD); showPow('NO!'); saveReel();
+    $('gm-msg').textContent='nope, try again'; typed=''; renderTyped();
   }
 }
 function giveUpGuest(){ reel.guestRevealed=true; play(S_GAMEO); lockReel(); }
@@ -339,11 +383,20 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   $('btn-archive').onclick=openArchive;
   document.querySelectorAll('.homeLink').forEach(b=> b.onclick=()=>{show('home');updateHome();});
 
-  $('d-submit').onclick=openGuessModal;
+  $('d-submit').onclick=()=>openGuessModal('clue');
+  buildGuessKeyboard();
   $('gm-submit').onclick=submitModal;
-  $('gm-input').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();submitModal();}});
   $('gm-close').onclick=closeGuessModal;
   $('guessModal').addEventListener('click',e=>{ if(e.target.id==='guessModal') closeGuessModal(); });
+  // desktop: let a real keyboard drive our on-screen one while the popup is open
+  document.addEventListener('keydown',e=>{
+    if(!$('guessModal').classList.contains('open')) return;
+    if(e.key==='Enter'){ e.preventDefault(); submitModal(); }
+    else if(e.key==='Backspace'){ e.preventDefault(); pressBack(); }
+    else if(e.key===' '){ e.preventDefault(); pressSpace(); }
+    else if(e.key==='Escape'){ closeGuessModal(); }
+    else if(/^[a-z0-9]$/i.test(e.key)){ pressKey(e.key.toLowerCase()); }
+  });
   $('d-hintBtn').onclick=dailyHint;
   $('d-revealBtn').onclick=dailyReveal;
   $('d-share').onclick=shareReel;

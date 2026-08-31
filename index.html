@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>The Movie Game</title>
   <link rel="icon" href="favicon.png" type="image/png" />
-  <link rel="stylesheet" href="themoviegame.css?v=71" />
+  <link rel="stylesheet" href="themoviegame.css?v=72" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Bebas+Neue&family=Anton&family=Oswald:wght@400;600&family=Monoton&family=Bungee&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;700&family=Space+Grotesk:wght@400;700&family=Archivo:wght@400;800&family=Cossette+Titre&family=BBH+Bogle&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
@@ -88,9 +88,10 @@
     <div class="guessSheet">
       <span id="gm-opp" class="gm-opp">OPPOSITE OF</span>
       <p id="gm-clue" class="gm-clue"></p>
-      <input id="gm-input" class="answer" placeholder="name the movie…" autocomplete="off" autocapitalize="words" inputmode="text" />
-      <button id="gm-submit" class="goBtn">GUESS</button>
+      <div id="gm-typed" class="gm-typed empty"></div>
+      <div id="gm-kbd" class="gm-kbd"></div>
       <div id="gm-msg" class="gm-msg"></div>
+      <button id="gm-submit" class="goBtn">GUESS</button>
       <button id="gm-close" class="gm-close">close</button>
     </div>
   </div>
@@ -101,6 +102,6 @@
   <audio id="sndWrong"    src="incorrect-answer-for-plunko.mp3" preload="auto"></audio>
   <audio id="sndGameOver" src="gameoversound.mp3" preload="auto"></audio>
 
-  <script src="themoviegame.js?v=71"></script>
+  <script src="themoviegame.js?v=72"></script>
 </body>
 </html>
