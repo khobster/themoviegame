@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <title>The Movie Game</title>
   <link rel="icon" href="favicon.png" type="image/png" />
-  <link rel="stylesheet" href="themoviegame.css?v=70" />
+  <link rel="stylesheet" href="themoviegame.css?v=71" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Bebas+Neue&family=Anton&family=Oswald:wght@400;600&family=Monoton&family=Bungee&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;700&family=Space+Grotesk:wght@400;700&family=Archivo:wght@400;800&family=Cossette+Titre&family=BBH+Bogle&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 </head>
 
 <body>
@@ -43,7 +43,6 @@
       <div id="d-hintArea" class="hintArea"></div>
 
       <div class="play">
-        <input id="d-input" class="answer" placeholder="name the movie…" autocomplete="off" inputmode="text" />
         <button id="d-submit" class="goBtn">GUESS</button>
         <div class="subRow">
           <span id="d-result" class="result" aria-live="polite"></span>
@@ -84,12 +83,24 @@
     <button id="closeHowTo">got it</button>
   </dialog>
 
+  <!-- guess popup: the phone keyboard opens over a locked board, so nothing jumps -->
+  <div id="guessModal" class="guessModal" role="dialog" aria-modal="true">
+    <div class="guessSheet">
+      <span id="gm-opp" class="gm-opp">OPPOSITE OF</span>
+      <p id="gm-clue" class="gm-clue"></p>
+      <input id="gm-input" class="answer" placeholder="name the movie…" autocomplete="off" autocapitalize="words" inputmode="text" />
+      <button id="gm-submit" class="goBtn">GUESS</button>
+      <div id="gm-msg" class="gm-msg"></div>
+      <button id="gm-close" class="gm-close">close</button>
+    </div>
+  </div>
+
   <div id="toastContainer"></div>
 
   <audio id="sndCorrect"  src="bing-bong.mp3" preload="auto"></audio>
   <audio id="sndWrong"    src="incorrect-answer-for-plunko.mp3" preload="auto"></audio>
   <audio id="sndGameOver" src="gameoversound.mp3" preload="auto"></audio>
 
-  <script src="themoviegame.js?v=70"></script>
+  <script src="themoviegame.js?v=71"></script>
 </body>
 </html>

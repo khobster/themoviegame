@@ -151,25 +151,57 @@ function renderActiveClue(){
   if(reel.hints[i]>=2) hp.push(`came out ${c.hint2}`);
   $('d-hintArea').textContent=hp.join('  ·  ');
   const resolved = s!=='open';
-  $('d-input').disabled=resolved; $('d-submit').disabled=resolved;
+  $('d-submit').disabled=resolved;
+  $('d-submit').style.display=resolved?'none':'';           // hide GUESS once this film is answered
   $('d-hintBtn').disabled=resolved||reel.hints[i]>=2;
   $('d-revealBtn').style.display=resolved?'none':'';
-  $('d-input').value='';
   if(s==='solved') $('d-result').innerHTML=`<span class="ok">✓ ${c.answer}</span>`;
   else if(s==='revealed') $('d-result').innerHTML=`<span class="bad">${c.answer}</span>`;
-  else { $('d-result').textContent=''; if(!reel.done) setTimeout(()=>$('d-input').focus({preventScroll:true}),30); }
+  else $('d-result').textContent='';
+  if($('guessModal').classList.contains('open')) $('gm-clue').textContent=c.question;
 }
 function renderProgress(){
   const solved=reel.statuses.filter(s=>s==='solved').length;
   $('d-progress').textContent=`${solved}/${reel.statuses.length} films`;
 }
 
-function dailyGuess(){
+/* ----- guess via popup (keeps the phone keyboard from moving the board) -----
+   one popup, two modes: 'clue' (name the movie) and 'guest' (name the actor) */
+let guessMode='clue';
+function openGuessModal(mode){
+  mode = mode==='guest' ? 'guest' : 'clue';
+  if(mode==='clue'){
+    const i=reel.active; if(!reel.data || reel.statuses[i]!=='open') return;
+    $('gm-opp').textContent='OPPOSITE OF';
+    $('gm-clue').textContent=reel.data.clues[i].question;
+    $('gm-input').placeholder='name the movie…';
+  } else {
+    if(!reel.data || reel.guestGot || reel.done) return;
+    $('gm-opp').textContent='WHO IS IT?';
+    $('gm-clue').textContent='one actor is in all four films';
+    $('gm-input').placeholder='name the actor…';
+  }
+  guessMode=mode;
+  $('gm-input').value=''; $('gm-msg').textContent='';
+  $('guessModal').classList.add('open'); document.body.classList.add('modal-open');
+  setTimeout(()=>$('gm-input').focus({preventScroll:true}),40);
+}
+function closeGuessModal(){
+  $('guessModal').classList.remove('open'); document.body.classList.remove('modal-open');
+}
+function submitModal(){
+  if(guessMode==='guest') submitGuestGuess($('gm-input').value);
+  else submitGuess($('gm-input').value);
+}
+function submitGuess(v){
   const i=reel.active; if(reel.statuses[i]!=='open') return;
-  const v=$('d-input').value.trim(); if(!v) return;
-  if(isMatch(v, reel.data.clues[i].answer)){ reel.statuses[i]='solved'; play(S_OK); afterClueResolved(true); }
-  else { play(S_BAD); $('d-result').textContent='nope. jump to another if you want';
-         $('d-input').value=''; $('d-input').focus({preventScroll:true}); }
+  v=(v||'').trim(); if(!v) return;
+  if(isMatch(v, reel.data.clues[i].answer)){
+    reel.statuses[i]='solved'; play(S_OK); closeGuessModal(); afterClueResolved(true);
+  } else {
+    play(S_BAD); $('gm-msg').textContent='nope, try another';
+    $('gm-input').value=''; $('gm-input').focus({preventScroll:true});
+  }
 }
 function dailyHint(){
   const i=reel.active; if(reel.statuses[i]!=='open'||reel.hints[i]>=2) return;
@@ -185,22 +217,8 @@ function afterClueResolved(advance){
   if(advance){ const nxt=reel.statuses.findIndex(s=>s==='open'); if(nxt>=0){ reel.active=nxt; renderActiveClue(); renderTabs(); } }
 }
 
-/* ----- mystery guest / WHO IS IT? ----- */
-function wireGuest(focus){
-  const b=$('d-guestBtn'); if(b) b.onclick=guestGuess;
-  const gi=$('d-guestInput'); if(gi) gi.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();guestGuess();}});
-  const gu=$('d-guestGiveup'); if(gu) gu.onclick=giveUpGuest;
-  if(focus && gi) setTimeout(()=>gi.focus({preventScroll:true}),40);
-}
-function guestField(){
-  return `<div class="guestRow">
-      <input id="d-guestInput" class="answer guest" placeholder="name the actor…" autocomplete="off" />
-      <button id="d-guestBtn" class="goBtn guestGo">▸</button>
-    </div>
-    <div id="d-guestMsg" class="guestMsg"></div>`;
-}
+/* ----- mystery guest / WHO IS IT?  (typed in the same popup as the movie) ----- */
 function renderGuest(){
-  const solved=reel.statuses.filter(s=>s==='solved').length;
   const wrap=$('d-guestWrap');
   if(reel.done || reel.guestRevealed){
     wrap.innerHTML=`<div class="guestReveal ${reel.guestGot?'got':''}">the guest was <b>${reel.data.guest}</b>${reel.guestGot?', and you nailed it':''}</div>`;
@@ -213,29 +231,25 @@ function renderGuest(){
   if(reel.filmsDone){                                   // FINALE — the guest is the whole screen now
     wrap.innerHTML=`
       <div class="guestPrompt finale"><span class="whois">WHO IS IT?</span><span class="sub">one actor is in all four films</span></div>
-      ${guestField()}
+      <button id="d-guestOpen" class="goBtn">NAME THE ACTOR</button>
       <button id="d-guestGiveup" class="revealBtn" style="display:block;margin:12px auto 0">give up, show me who</button>`;
-    wireGuest(true);
+    $('d-guestOpen').onclick=()=>openGuessModal('guest');
+    $('d-guestGiveup').onclick=giveUpGuest;
     return;
   }
-  // not done yet: keep it clean — one quiet line, opens the guess on tap
-  const hintTxt = solved>=2 ? ` (starts with ${reel.data.guest[0]})` : '';
-  wrap.innerHTML=`
-    <button id="d-guestOpen" class="guestOpen">bonus: one actor is in all four. know who?${hintTxt} ›</button>
-    <div id="d-guestEarly" class="guestEarly" style="display:none">${guestField()}</div>`;
-  const open=$('d-guestOpen');
-  open.onclick=()=>{ $('d-guestEarly').style.display='block'; open.style.display='none'; wireGuest(true); };
+  // not done yet: one quiet line that pops the guess box (no letter hint)
+  wrap.innerHTML=`<button id="d-guestOpen" class="guestOpen">bonus: one actor is in all four. know who? ›</button>`;
+  $('d-guestOpen').onclick=()=>openGuessModal('guest');
 }
-function guestGuess(){
-  const el=$('d-guestInput'); if(!el) return;
-  const v=el.value.trim(); if(!v) return;
+function submitGuestGuess(v){
+  v=(v||'').trim(); if(!v) return;
   if(matchGuest(v, reel.data)){
-    reel.guestGot=true; play(S_OK); toast('bonus, nice'); saveReel();
+    reel.guestGot=true; play(S_GAMEO); toast('bonus, nice'); saveReel();   // cool music sting for nailing the actor
+    closeGuessModal();
     if(reel.filmsDone) lockReel(); else renderGuest();
   } else {
     reel.guestTries++; play(S_BAD); saveReel();
-    const m=$('d-guestMsg'); if(m) m.textContent = reel.filmsDone ? 'nope, try again' : "nope. solve more and i'll give you a hint";
-    el.value=''; el.focus({preventScroll:true});
+    $('gm-msg').textContent='nope, try again'; $('gm-input').value=''; $('gm-input').focus({preventScroll:true});
   }
 }
 function giveUpGuest(){ reel.guestRevealed=true; play(S_GAMEO); lockReel(); }
@@ -325,8 +339,11 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   $('btn-archive').onclick=openArchive;
   document.querySelectorAll('.homeLink').forEach(b=> b.onclick=()=>{show('home');updateHome();});
 
-  $('d-submit').onclick=dailyGuess;
-  $('d-input').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();dailyGuess();}});
+  $('d-submit').onclick=openGuessModal;
+  $('gm-submit').onclick=submitModal;
+  $('gm-input').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();submitModal();}});
+  $('gm-close').onclick=closeGuessModal;
+  $('guessModal').addEventListener('click',e=>{ if(e.target.id==='guessModal') closeGuessModal(); });
   $('d-hintBtn').onclick=dailyHint;
   $('d-revealBtn').onclick=dailyReveal;
   $('d-share').onclick=shareReel;

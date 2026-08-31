@@ -359,6 +359,23 @@ body{
 .guestEarly{margin-top:6px}
 .guestGo{width:54px;flex:0 0 auto;font-size:26px;padding:0}
 .guestGo::after{content:none}
+
+/* ===== guess popup — phone keyboard opens over a locked board, nothing jumps ===== */
+.guessModal{position:fixed;inset:0;z-index:200;display:none;
+  background:rgba(10,2,8,.66);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.guessModal.open{display:block}
+body.modal-open{overflow:hidden}
+.guessSheet{position:absolute;top:7vh;left:50%;transform:translateX(-50%);
+  width:min(92vw,460px);text-align:center;padding:6px}
+.gm-opp{display:block;font-family:'Monoton',var(--display),sans-serif;font-size:16px;letter-spacing:.10em;color:#fff3d6;
+  text-shadow:0 0 4px #fff,0 0 9px #ffd36b,0 0 17px #ff9d2f,0 0 30px #ff7a1a;margin-bottom:8px}
+.gm-clue{font-family:var(--display),sans-serif;color:var(--cream);font-size:34px;line-height:1.04;margin:0 0 16px;
+  text-shadow:var(--tshadow),2px 0 rgba(255,40,90,.5),-2px 0 rgba(30,225,255,.45)}
+.guessSheet .goBtn{margin-top:14px}
+.gm-msg{min-height:18px;margin-top:10px;font-weight:900;color:#ff9a9a;text-shadow:1px 1px 0 rgba(0,0,0,.6)}
+.gm-close{display:block;margin:16px auto 0;background:none;border:none;cursor:pointer;
+  color:var(--cream);opacity:.85;text-decoration:underline;text-underline-offset:3px;font-weight:700;font-size:14px}
+.gm-close:hover{opacity:1}
 .result{text-shadow:1px 1px 0 rgba(0,0,0,.6)}
 .result .ok{color:#8be89b} .result .bad{color:#ff9a9a}
 .revealBtn{color:#f6d9e6;text-shadow:1px 1px 0 rgba(0,0,0,.5)}
