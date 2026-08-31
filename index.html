@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>The Movie Game</title>
   <link rel="icon" href="favicon.png" type="image/png" />
-  <link rel="stylesheet" href="themoviegame.css?v=69" />
+  <link rel="stylesheet" href="themoviegame.css?v=70" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Bebas+Neue&family=Anton&family=Oswald:wght@400;600&family=Monoton&family=Bungee&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;700&family=Space+Grotesk:wght@400;700&family=Archivo:wght@400;800&family=Cossette+Titre&family=BBH+Bogle&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -21,9 +21,9 @@
     <div class="stage">
       <div class="marquee homeMarquee">THE<br>MOVIE<br>GAME</div>
       <img class="mascot" src="oscarlogobeanie.png" alt="mascot" />
-      <p class="pitch">every clue is a movie flipped to its <b>opposite</b>. name the film.</p>
-      <button id="btn-daily" class="playBtn">▶ play today's reel</button>
-      <div class="homeMeta"><span id="home-daily-status">—</span> · 🔥 streak <span id="home-streak">0</span></div>
+      <p class="pitch">every clue is a movie flipped to its <b>opposite</b></p>
+      <button id="btn-daily" class="playBtn">play today's reel</button>
+      <div id="homeMeta" class="homeMeta"></div>
       <a id="btn-archive" class="textLink">past reels ›</a>
     </div>
   </section>
@@ -44,13 +44,13 @@
 
       <div class="play">
         <input id="d-input" class="answer" placeholder="name the movie…" autocomplete="off" inputmode="text" />
-        <div class="btnRow">
-          <button id="d-submit" class="goBtn">GUESS</button>
-          <button id="d-hintBtn" class="iconBtn" title="need a hint?">💡</button>
-        </div>
+        <button id="d-submit" class="goBtn">GUESS</button>
         <div class="subRow">
           <span id="d-result" class="result" aria-live="polite"></span>
-          <button id="d-revealBtn" class="revealBtn" title="give up this movie">reveal</button>
+          <span class="helpRow">
+            <button id="d-hintBtn" class="revealBtn" title="need a hint?">hint</button>
+            <button id="d-revealBtn" class="revealBtn" title="give up this movie">reveal</button>
+          </span>
         </div>
       </div>
 
@@ -90,6 +90,6 @@
   <audio id="sndWrong"    src="incorrect-answer-for-plunko.mp3" preload="auto"></audio>
   <audio id="sndGameOver" src="gameoversound.mp3" preload="auto"></audio>
 
-  <script src="themoviegame.js?v=69"></script>
+  <script src="themoviegame.js?v=70"></script>
 </body>
 </html>

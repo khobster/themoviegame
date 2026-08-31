@@ -186,40 +186,51 @@ function afterClueResolved(advance){
 }
 
 /* ----- mystery guest / WHO IS IT? ----- */
+function wireGuest(focus){
+  const b=$('d-guestBtn'); if(b) b.onclick=guestGuess;
+  const gi=$('d-guestInput'); if(gi) gi.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();guestGuess();}});
+  const gu=$('d-guestGiveup'); if(gu) gu.onclick=giveUpGuest;
+  if(focus && gi) setTimeout(()=>gi.focus({preventScroll:true}),40);
+}
+function guestField(){
+  return `<div class="guestRow">
+      <input id="d-guestInput" class="answer guest" placeholder="name the actor…" autocomplete="off" />
+      <button id="d-guestBtn" class="goBtn guestGo">▸</button>
+    </div>
+    <div id="d-guestMsg" class="guestMsg"></div>`;
+}
 function renderGuest(){
   const solved=reel.statuses.filter(s=>s==='solved').length;
   const wrap=$('d-guestWrap');
   if(reel.done || reel.guestRevealed){
-    wrap.innerHTML=`<div class="guestReveal ${reel.guestGot?'got':''}">🎭 it was <b>${reel.data.guest}</b>${reel.guestGot?' and you got it ⭐':''}</div>`;
+    wrap.innerHTML=`<div class="guestReveal ${reel.guestGot?'got':''}">the guest was <b>${reel.data.guest}</b>${reel.guestGot?', and you nailed it':''}</div>`;
     return;
   }
   if(reel.guestGot){
-    wrap.innerHTML=`<div class="guestReveal got">🎭 <b>${reel.data.guest}</b> ⭐ nice. now finish the board</div>`;
+    wrap.innerHTML=`<div class="guestReveal got"><b>${reel.data.guest}</b> · nice, now finish the board</div>`;
     return;
   }
-  const finale=reel.filmsDone;
-  const hint = (solved>=2 && !finale) ? ` <span class="gh">(hint: their first initial is ${reel.data.guest[0]})</span>` : '';
-  const heading = finale
-    ? `<span class="whois">WHO IS IT?</span><span class="sub">one actor is in all four films. name em</span>`
-    : `🎭 <b>who is it?</b> one actor is in all four films. name em for a bonus ⭐${hint}`;
+  if(reel.filmsDone){                                   // FINALE — the guest is the whole screen now
+    wrap.innerHTML=`
+      <div class="guestPrompt finale"><span class="whois">WHO IS IT?</span><span class="sub">one actor is in all four films</span></div>
+      ${guestField()}
+      <button id="d-guestGiveup" class="revealBtn" style="display:block;margin:12px auto 0">give up, show me who</button>`;
+    wireGuest(true);
+    return;
+  }
+  // not done yet: keep it clean — one quiet line, opens the guess on tap
+  const hintTxt = solved>=2 ? ` (starts with ${reel.data.guest[0]})` : '';
   wrap.innerHTML=`
-    <div class="guestPrompt ${finale?'finale':''}">${heading}</div>
-    <div class="guestRow">
-      <input id="d-guestInput" class="answer guest" placeholder="the mystery guest…" autocomplete="off" />
-      <button id="d-guestBtn" class="iconBtn">🎬</button>
-    </div>
-    <div id="d-guestMsg" class="guestMsg"></div>
-    ${finale?'<button id="d-guestGiveup" class="revealBtn" style="display:block;margin:10px auto 0">give up, show me who</button>':''}`;
-  $('d-guestBtn').onclick=guestGuess;
-  $('d-guestInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();guestGuess();}});
-  const gu=$('d-guestGiveup'); if(gu) gu.onclick=giveUpGuest;
-  if(finale) setTimeout(()=>{const gi=$('d-guestInput'); if(gi) gi.focus({preventScroll:true});},40);
+    <button id="d-guestOpen" class="guestOpen">bonus: one actor is in all four. know who?${hintTxt} ›</button>
+    <div id="d-guestEarly" class="guestEarly" style="display:none">${guestField()}</div>`;
+  const open=$('d-guestOpen');
+  open.onclick=()=>{ $('d-guestEarly').style.display='block'; open.style.display='none'; wireGuest(true); };
 }
 function guestGuess(){
   const el=$('d-guestInput'); if(!el) return;
   const v=el.value.trim(); if(!v) return;
   if(matchGuest(v, reel.data)){
-    reel.guestGot=true; play(S_OK); toast('nice, bonus ⭐'); saveReel();
+    reel.guestGot=true; play(S_OK); toast('bonus, nice'); saveReel();
     if(reel.filmsDone) lockReel(); else renderGuest();
   } else {
     reel.guestTries++; play(S_BAD); saveReel();
@@ -252,7 +263,7 @@ function renderShare(){
       const now=new Date(), mid=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1);
       let s=Math.max(0,Math.floor((mid-now)/1000));
       const h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor(s/60)%60).padStart(2,'0'),ss=String(s%60).padStart(2,'0');
-      $('d-lock').innerHTML=`${won?'that’s a wrap 🎬':'that’s a wrap.'} 🔥 streak <b>${streak}</b> · best <b>${best}</b><br>next reel drops in <b>${h}:${m}:${ss}</b>`;
+      $('d-lock').innerHTML=`that’s a wrap · streak <b>${streak}</b><br>next reel in <b>${h}:${m}:${ss}</b>`;
     };
     tick(); clearInterval(lockTimer); lockTimer=setInterval(tick,1000);
   } else {
@@ -290,9 +301,12 @@ function renderArchive(){
 /* ---------- home ---------- */
 function updateHome(){
   if(!REELS) return;
-  $('home-streak').textContent=displayStreak();
   const cur=currentReelNum(), rec=results()[cur];
-  $('home-daily-status').textContent = rec ? (reelSolved(rec)?'solved today ✓':'in progress') : 'new reel today';
+  const streak=displayStreak();
+  const bits=[];
+  if(rec) bits.push(reelSolved(rec) ? 'solved today' : 'in progress');
+  if(streak>0) bits.push(`<b class="streakVal">${streak} day streak</b>`);   // only show a streak once you have one
+  $('homeMeta').innerHTML = bits.join('<span class="metaDot">·</span>');
 }
 
 /* ========================================================================
