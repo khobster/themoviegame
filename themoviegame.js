@@ -339,10 +339,11 @@ function shareReel(){
   const full=`${body}\n${url}`;
   const copy=()=>{
     if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(full).then(()=>toast('copied')).catch(()=>toast('couldn’t copy'));
+      navigator.clipboard.writeText(full).then(()=>toast('copied!')).catch(()=>toast('couldn’t copy'));
     } else toast('couldn’t copy');
   };
-  if(navigator.share){
+  const isMobile = matchMedia('(pointer: coarse)').matches;
+  if(isMobile && navigator.share){
     navigator.share({text:body,url}).catch(err=>{ if(!err||err.name!=='AbortError') copy(); });
   } else copy();
 }
