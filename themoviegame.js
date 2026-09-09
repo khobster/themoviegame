@@ -334,9 +334,17 @@ function shareReel(){
   const emo=reel.statuses.map((s,i)=> s==='revealed'?'🟥': reel.hints[i]>0?'🟨':'🟩').join('');
   const g=reel.guestGot?'🎭⭐':'🎭❌';
   const tail = reel.isToday ? `\n🔥${displayStreak()}` : '';
-  const msg=`🎬 the daily reel #${reel.num}\n${emo} ${g}${tail}\n${location.origin+location.pathname}`;
-  if(navigator.share){ navigator.share({text:msg}).catch(()=>{}); }
-  else{ navigator.clipboard.writeText(msg).then(()=>toast('copied')).catch(()=>toast('couldn’t copy')); }
+  const url=location.origin+location.pathname;
+  const body=`🎬 the daily reel #${reel.num}\n${emo} ${g}${tail}`;
+  const full=`${body}\n${url}`;
+  const copy=()=>{
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(full).then(()=>toast('copied')).catch(()=>toast('couldn’t copy'));
+    } else toast('couldn’t copy');
+  };
+  if(navigator.share){
+    navigator.share({text:body,url}).catch(err=>{ if(!err||err.name!=='AbortError') copy(); });
+  } else copy();
 }
 
 /* ========================================================================
