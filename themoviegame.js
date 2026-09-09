@@ -335,7 +335,7 @@ function shareReel(){
   const g=reel.guestGot?'🎭⭐':'🎭❌';
   const tail = reel.isToday ? `\n🔥${displayStreak()}` : '';
   const url=location.origin+location.pathname;
-  const body=`🎬 the daily reel #${reel.num}\n${emo} ${g}${tail}`;
+  const body=`🎬 THE MOVIE GAME #${reel.num}\nguess the films from their OPPOSITE titles\n${emo} ${g}${tail}`;
   const full=`${body}\n${url}`;
   const copy=()=>{
     if(navigator.clipboard&&navigator.clipboard.writeText){
@@ -423,3 +423,31 @@ function toast(msg){
   const t=document.createElement('div'); t.className='toast'; t.textContent=msg;
   $('toastContainer').appendChild(t); setTimeout(()=>t.remove(),2600);
 }
+
+/* ---- retention beacon ----
+   Fires ONE GA4 event the first time a player opens on a new LOCAL day, so GA4 can
+   report real daily-game retention (next-day return rate + days-since-first survival
+   curve). No backend. Register days_since_first / day_gap / returned_next_day as custom
+   dimensions in GA4 to read the curve. */
+(function(){
+  try{
+    if(typeof window.gtag!=='function') return;
+    const KEY='tmg_ret';
+    const now=new Date();
+    const day=Math.floor((now-now.getTimezoneOffset()*60000)/86400000); // local day index
+    let st=null; try{ st=JSON.parse(localStorage.getItem(KEY)); }catch(_){}
+    if(st && st.last===day) return; // already counted today
+    const isNew=!st;
+    const gap=isNew?0:(day-st.last);
+    const first=isNew?day:st.first;
+    const streak=isNew?1:(gap===1?(st.streak||1)+1:1);
+    window.gtag('event','daily_open',{
+      days_since_first:day-first,
+      day_gap:gap,
+      visit_streak:streak,
+      returned_next_day:gap===1?1:0,
+      is_new_player:isNew?1:0
+    });
+    localStorage.setItem(KEY,JSON.stringify({first,last:day,streak}));
+  }catch(e){}
+})();
